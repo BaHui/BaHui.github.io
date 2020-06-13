@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UserAgent,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="iOS开发中，前端H5开发同学想获知H5页面是在App内部还是在其他浏览器被打开，则需要客户端配合修改默认的UserAgent, 以便区分。在iOS8之前一直用的都是UIWebView，但是在iOS9出了一个WKWebView，对比起来前者UIWebview就具有严重的内存问题，所以以后UIWebView会被慢慢替代。这里讲讲WKWebView怎么修改UserAgent。">
+<meta name="keywords" content="UserAgent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WKWebView设置UserAgent">
+<meta property="og:url" content="http://yoursite.com/2019/06/16/WKWebView设置UserAgent/index.html">
+<meta property="og:site_name" content="iOS Developer">
+<meta property="og:description" content="iOS开发中，前端H5开发同学想获知H5页面是在App内部还是在其他浏览器被打开，则需要客户端配合修改默认的UserAgent, 以便区分。在iOS8之前一直用的都是UIWebView，但是在iOS9出了一个WKWebView，对比起来前者UIWebview就具有严重的内存问题，所以以后UIWebView会被慢慢替代。这里讲讲WKWebView怎么修改UserAgent。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-16T11:58:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WKWebView设置UserAgent">
+<meta name="twitter:description" content="iOS开发中，前端H5开发同学想获知H5页面是在App内部还是在其他浏览器被打开，则需要客户端配合修改默认的UserAgent, 以便区分。在iOS8之前一直用的都是UIWebView，但是在iOS9出了一个WKWebView，对比起来前者UIWebview就具有严重的内存问题，所以以后UIWebView会被慢慢替代。这里讲讲WKWebView怎么修改UserAgent。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/16/WKWebView设置UserAgent/">
+
+
+
+
+
+  <title>WKWebView设置UserAgent | iOS Developer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOS Developer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding is life!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/BaHui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/WKWebView设置UserAgent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaHui·Qiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS Developer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WKWebView设置UserAgent</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T15:17:42+08:00">
+                2019-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　<strong>iOS开发中，前端H5开发同学想获知H5页面是在App内部还是在其他浏览器被打开，则需要客户端配合修改默认的<code>UserAgent</code>, 以便区分。在iOS8之前一直用的都是<code>UIWebView</code>，但是在iOS9出了一个<code>WKWebView</code>，对比起来前者UIWebview就具有严重的内存问题，所以以后UIWebView会被慢慢替代。这里讲讲WKWebView怎么修改UserAgent。</strong></p>
+<a id="more"></a>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 比如, 在原UA基础上拼接上自定义的字符为: @"iOS_Development"</span></span><br><span class="line">- (<span class="keyword">void</span>)configureWebViewCustomUserAgent &#123;</span><br><span class="line">  <span class="built_in">WKWebView</span> *webView = [<span class="built_in">WKWebView</span> alloc] init];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取当前UserAgent, 并对其进行修改</span></span><br><span class="line">  [webView evaluateJavaScript:<span class="string">@"navigator.userAgent"</span> completionHandler:^(<span class="keyword">id</span> userAgent, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([userAgent isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">      <span class="built_in">NSString</span> *systemUserAgent = <span class="string">@""</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 防止重复添加</span></span><br><span class="line">      <span class="keyword">if</span> ([userAgent containsString:<span class="string">@"iOS_Development"</span>]) &#123; </span><br><span class="line">        <span class="built_in">NSRange</span> identifierRange = [userAgent rangeOfString:<span class="string">@"iOS_Development"</span>];</span><br><span class="line">        systemUserAgent = [userAgent substringToIndex:identifierRange.location];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">        systemUserAgent = userAgent;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//  自定义UA格式: `原始UA` + `空格` + `自定义字符`</span></span><br><span class="line">      <span class="built_in">NSString</span> *willAppendedString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@" %@"</span>, iOS_Development];</span><br><span class="line">      <span class="built_in">NSString</span> *newUserAgent = [systemUserAgent stringByAppendingString:willAppendedString];</span><br><span class="line">      <span class="built_in">NSDictionary</span> *dictionary = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:newUserAgent, <span class="string">@"UserAgent"</span>, <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">      [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] registerDefaults:dictionary];</span><br><span class="line">      [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] synchronize];</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 关键代码, 必须实现这个方法, 否则第一次打开UA还是原始值, 待第二次打开webview才是正确的UA;</span></span><br><span class="line">      [webView setCustomUserAgent:newUserAgent];</span><br><span class="line"></span><br><span class="line">      <span class="meta">#TODO: load WebView Request</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><blockquote>
+<p><strong><code>原UserAgent</code>: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15F79</strong><br><strong><code>新UserAgent</code>: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15F79 iOS_Development</strong></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UserAgent/" rel="tag"># UserAgent</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/08/SSH Key的生成/" rel="next" title="SSH Key的生成">
+                <i class="fa fa-chevron-left"></i> SSH Key的生成
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/RAC字典数组遍历/" rel="prev" title="RAC字典数组遍历">
+                RAC字典数组遍历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4" alt="BaHui·Qiao">
+            
+              <p class="site-author-name" itemprop="name">BaHui·Qiao</p>
+              <p class="site-description motion-element" itemprop="description">Know what it is, know why it is!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaHui·Qiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

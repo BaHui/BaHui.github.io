@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="iOS项目开发中, 对常用的开发技术点进行归纳和总结, 加强对知识点的理解和吸收, 提升个人技能。">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS技术点">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/iOS技术点/index.html">
+<meta property="og:site_name" content="iOS Developer">
+<meta property="og:description" content="iOS项目开发中, 对常用的开发技术点进行归纳和总结, 加强对知识点的理解和吸收, 提升个人技能。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-07T16:52:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS技术点">
+<meta name="twitter:description" content="iOS项目开发中, 对常用的开发技术点进行归纳和总结, 加强对知识点的理解和吸收, 提升个人技能。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/iOS技术点/">
+
+
+
+
+
+  <title>iOS技术点 | iOS Developer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOS Developer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding is life!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/BaHui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/iOS技术点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaHui·Qiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS Developer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS技术点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T23:59:42+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　<strong>iOS项目开发中, 对常用的开发技术点进行归纳和总结, 加强对知识点的理解和吸收, 提升个人技能。</strong></p>
+<a id="more"></a>
+
+<h2 id="🔥Objective-C语言特点"><a href="#🔥Objective-C语言特点" class="headerlink" title="🔥Objective-C语言特点"></a>🔥Objective-C语言特点</h2><ol>
+<li>动态类型：如id类型。实际上静态类型因为其固定性和可预知性而使用的特别广泛。静态类型是强类型，动态类型是弱类型，运行时决定接收者。 </li>
+<li>动态绑定：让代码在运行时判断需要调用什么方法，而不是在编译时。与其他面向对象语言一样，方法调用和代码并没有在编译时连接在一起，而是在消息发送时才进行连接。运行时决定调用哪个方法。 </li>
+<li>动态载入：让程序在运行时添加代码模块以及其他资源。用户可以根据需要执行一些可执行代码和资源，而不是在启动时就加载所有组件。可执行代码中可以含有和程序运行时整合的新类。</li>
+</ol>
+<hr>
+<h2 id="🔥Objective-C的类可以多重继承么？可以实现多个接口么"><a href="#🔥Objective-C的类可以多重继承么？可以实现多个接口么" class="headerlink" title="🔥Objective-C的类可以多重继承么？可以实现多个接口么?"></a>🔥Objective-C的类可以多重继承么？可以实现多个接口么?</h2><ol>
+<li>Objective-C的类不可以多重继承, 它仅仅是单继承, </li>
+<li>可以实现多个接口;</li>
+</ol>
+<hr>
+<h2 id="🔥Category是什么？重写一个类的方式用继承好还是分类好"><a href="#🔥Category是什么？重写一个类的方式用继承好还是分类好" class="headerlink" title="🔥Category是什么？重写一个类的方式用继承好还是分类好?"></a>🔥Category是什么？重写一个类的方式用继承好还是分类好?</h2><p>Category是类别，也叫类目, 是对一个类的方法起到丰富性的作用;<br>用Category重写类的方法，它仅仅只对本类有效，并不会影响到其他类和原有类的关系，如果是要在不修改原有类的基础上增加其他原有类没有的方法，就要用类目，继承是可以重写父类的方法，只是子类继承父类的方法来使用。</p>
+<hr>
+<h2 id="🔥nonatomic-和-atomic的区别？atomic是绝对的线程安全么？"><a href="#🔥nonatomic-和-atomic的区别？atomic是绝对的线程安全么？" class="headerlink" title="🔥nonatomic 和 atomic的区别？atomic是绝对的线程安全么？"></a>🔥nonatomic 和 atomic的区别？atomic是绝对的线程安全么？</h2><p>· nonatomic:表示非原子，系统自动生成的[getter/setter]方法不会进行加锁操作不安全，但是效率高。<br>· atomic：表示原子，系统自动生成的[getter/setter]方法会进行加锁操作, 安全，但是效率低。 </p>
+<p>atomic,也就是说：如果有多个线程同时调用setter的话，不会出现某一个线程执行完setter全部语句之前，另一个线程开始执行setter情况，相当于函数头尾加了锁一样，每次只能有一个线程调用对象的setter方法，所以可以保证数据的完整性。<br>atomic所说的线程安全只是保证了getter和setter存取方法的线程安全，并不能保证整个对象是线程安全的。<br>eg:  (atomic 环境下)<br>如果线程 A 调了 getter，与此同时线程 B 、线程 C 都调了 setter——那最后线程 A get 到的值，有3种可能：可能是 B、C set 之前原始的值，也可能是 B set 的值，也可能是 C set 的值。同时，最终这个属性的值，可能是 B set 的值，也有可能是 C set 的值。所以atomic可并不能保证对象的线程安全。</p>
+<hr>
+<h2 id="🔥浅拷贝-与-深拷贝"><a href="#🔥浅拷贝-与-深拷贝" class="headerlink" title="🔥浅拷贝 与 深拷贝"></a>🔥浅拷贝 与 深拷贝</h2><p>本 质: 内存地址是否相同;</p>
+<p>· copy 返回的是不可变对象（immutableObject）<br>· mutableCopy 返回的是可变对象（mutableObject）。</p>
+<p>[不可变对象 copy]: 返回不可变对象, 浅拷贝, 指针的拷贝;<br>[不可变对象 mutableCopy]: 返回可变对象, 深拷贝, 指针和内存的拷贝;</p>
+<p>[可变对象 copy]: 返回不可变对象, 深拷贝, 指针和内存和拷贝;<br>[可变对象 mutableCopy]: 返回可变对象, 深拷贝, 指针和内存的拷贝;</p>
+<hr>
+<h2 id="🔥这个写法会出什么问题：-property-nonatomic-copy-NSMutableArray-array"><a href="#🔥这个写法会出什么问题：-property-nonatomic-copy-NSMutableArray-array" class="headerlink" title="🔥这个写法会出什么问题：@property (nonatomic, copy) NSMutableArray *array"></a>🔥这个写法会出什么问题：@property (nonatomic, copy) NSMutableArray *array</h2><p>添加, 删除, 修改 数组内的元素的时候,程序会因为找不到对应的方法而崩溃。</p>
+<p>原因：对NSMutableArray的copy为深拷贝, 是对指针和内存地址的拷贝, 但是返回的对象类型是不可变类型, 即:NSArray类型; 所以对一个不可变数组进行操作, 会发生异常而产生崩溃.<br>如删除操作异常: [__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7fcd1bc30460</p>
+<hr>
+<h2 id="🔥在Block内部修改局部变量需要做什么操作-为什么"><a href="#🔥在Block内部修改局部变量需要做什么操作-为什么" class="headerlink" title="🔥在Block内部修改局部变量需要做什么操作? 为什么?"></a>🔥在Block内部修改局部变量需要做什么操作? 为什么?</h2><p>使用 <strong>block 关键字修饰变量<br>原因: Block不允许修改外部变量的值，这里所说的外部变量的值，指的是栈中指针的内存地址。</strong>block 所起到的作用就是只要观察到该变量被 block 所持有，就将“外部变量”在栈中的内存地址放到了堆中。进而在block内部也可以修改外部变量的值。<br>没有通过<strong>block修饰则是将值传进去，而通过</strong>block修饰之后是将变量的内存地址传进去，这样就可以修改变量的值。<br>1，局部变量<br>局部自动变量，在Block中只读。Block定义时copy变量的值，在Block中作为常量使用，所以即使变量的值在Block外改变，也不影响他在Block中的值。<br>2， static修饰符的静态变量或全局变量<br>因为全局变量货静态变量在内存中的地址是固定的，Block在读取改变量值的时候是直接从其所在的内存读出的，获取到的是最新值，而不是在定义时copy的常量。 </p>
+<hr>
+<h2 id="🔥如何让自定义的类具备Copy或者MutableCopy功能"><a href="#🔥如何让自定义的类具备Copy或者MutableCopy功能" class="headerlink" title="🔥如何让自定义的类具备Copy或者MutableCopy功能?"></a>🔥如何让自定义的类具备Copy或者MutableCopy功能?</h2><p>对于自定义的对象，默认是不遵守NSCopying/NSMutableCopying协议的，如果我们希望自定义对象可以调用copy/mutableCopy，则需要手动去实现。<br>· Copy需要遵守NSCopying协议，重写+copyWithZone<br>· NSMutableCopy需要遵守NSMutableCopying协议，重写+mutableCopyWithZone</p>
+<hr>
+<h2 id="🔥Objective-C-如何对内存管理的，说说你的看法和解决方法"><a href="#🔥Objective-C-如何对内存管理的，说说你的看法和解决方法" class="headerlink" title="🔥Objective-C 如何对内存管理的，说说你的看法和解决方法?"></a>🔥Objective-C 如何对内存管理的，说说你的看法和解决方法?</h2><p>内存管理主要有三种方式ARC(自动内存计数)、MRC(手动内存计数)、ReleasePool(内存池)。<br>1). ARC：由Xcode自动在App编译阶段，在代码中添加内存管理代码。<br>2). MRC：遵循内存谁申请、谁释放；谁添加，谁释放的原则。<br>3). Release Pool：把需要释放的内存统一放在一个池子中，当池子被抽干后(drain)，池子中所有的内存空间也被自动释放掉。内存池的释放操作分为自动和手动。自动释放受runloop机制影响。</p>
+<hr>
+<h2 id="🔥我们说的OC是动态运行时语言是什么意思"><a href="#🔥我们说的OC是动态运行时语言是什么意思" class="headerlink" title="🔥我们说的OC是动态运行时语言是什么意思?"></a>🔥我们说的OC是动态运行时语言是什么意思?</h2><p>主要是将数据类型的确定由编译时，推迟到了运行时。简单来说, 运行时机制使我们直到运行时才去决定一个对象的类别,以及调用该类别对象指定方法。</p>
+<hr>
+<h2 id="🔥delegate常用的属性修饰符是什么-为什么"><a href="#🔥delegate常用的属性修饰符是什么-为什么" class="headerlink" title="🔥delegate常用的属性修饰符是什么? 为什么?"></a>🔥delegate常用的属性修饰符是什么? 为什么?</h2><p>原因: 防止发生循环引用导致对象无法释放, 从而发生内存泄露;<br>简单点来讲strong属性会使引用计数+1,而weak修饰的对象不会使引用计数改变. </p>
+<hr>
+<h2 id="🔥KVC的实现原理？"><a href="#🔥KVC的实现原理？" class="headerlink" title="🔥KVC的实现原理？"></a>🔥KVC的实现原理？</h2><p>KVC: Key-value coding, 键值编码.<br>当一个对象调用setValue方法时，方法内部调用顺序:<br>[set方法] -&gt; [_key] -&gt; [property key]<br>如果以上都没有找到，则调用(valueForUndefinedKey:)和(setValue:forUndefinedKey:)抛出异常。</p>
+<hr>
+<h2 id="🔥KV0的实现原理"><a href="#🔥KV0的实现原理" class="headerlink" title="🔥KV0的实现原理"></a>🔥KV0的实现原理</h2><p>KVO: Key-Value Observing,  是基于Runtime实现的;<br>当观察对象A时，KVO动态创建了新的名为NSKVONotifying_xxx(Person则生成:NSKVONotifying_Person)的新类，该类为对象A的子类，并且KVO重写了新类的观察属性的setter方法，setter方法负责在调用原setter方法之前和之后，通知所有观察者该属性的变化情况<br>派生类NSKVONotifying_xxx的setter方法的重写:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)newName &#123;</span><br><span class="line">  [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"name"</span>];    <span class="comment">// KVO在调用存取方法之前总调用</span></span><br><span class="line">  [<span class="keyword">super</span> setValue:newName forKey:<span class="string">@"name"</span>]; <span class="comment">// 调用父类的存取方法</span></span><br><span class="line">  [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"name"</span>];     <span class="comment">// KVO在调用存取方法之后总调用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥什么是method-swizzling"><a href="#🔥什么是method-swizzling" class="headerlink" title="🔥什么是method swizzling?"></a>🔥什么是method swizzling?</h2><p>在Objective-C中调用一个方法，其实是向一个对象发送消息，查找消息的唯一依据是selector的名字。利用Objective-C的动态特性，可以实现在运行时偷换selector对应的方法实现，达到给方法挂钩的目的。<br>每个类都有一个方法列表，存放着selector的名字和方法实现的映射关系。IMP有点类似函数指针，指向具体的Method实现。</p>
+<p>利用 class_replaceMethod 来修改类，<br>利用 method_exchangeImplementations 来交换两个方法中的IMP，<br>利用 method_setImplementation 来直接设置某个方法的IMP.</p>
+<hr>
+<h2 id="🔥Category能否添加成员变量-Category中能添加属性、方法吗？"><a href="#🔥Category能否添加成员变量-Category中能添加属性、方法吗？" class="headerlink" title="🔥Category能否添加成员变量? Category中能添加属性、方法吗？"></a>🔥Category能否添加成员变量? Category中能添加属性、方法吗？</h2><p>· 不能动态添加成员变量, 原因: 在Runtime中，objc_class结构体大小是固定的，不可能往这个结构体中添加数据，只能修改. 所以ivars指向的是一个固定区域，只能修改成员变量值，不能增加成员变量个数;<br>· 可以动态添加属性、方法, 实现方式:</p>
+<p>1) 关联属性 (类别中添加的属性, 不会自动生成getter 和 setter方法, 需手动实现)</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> *nameKey = <span class="string">"nameKey"</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">  objc_setAssociatedObject(<span class="keyword">self</span>, nameKey, name, OBJC_ASSOCIATION_COPY_NONATOMIC);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">  <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, nameKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2) 动态添加方法: </p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel; <span class="comment">// 实例方法</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveClassMethod:(SEL)sel;    <span class="comment">// 类方法</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">  <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(drive)) &#123;</span><br><span class="line">  class_addMethod([<span class="keyword">self</span> <span class="keyword">class</span>], sel, (IMP)startEngine, <span class="string">"v@:@"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥简述ViewController生命周期"><a href="#🔥简述ViewController生命周期" class="headerlink" title="🔥简述ViewController生命周期"></a>🔥简述ViewController生命周期</h2><ol>
+<li>initWithCoder：通过nib文件初始化时触发。</li>
+<li>awakeFromNib：nib文件被加载的时，会发生一个awakeFromNib的消息到nib文件中的每个对象。      </li>
+<li>loadView：开始加载视图控制器自带的view。</li>
+<li>viewDidLoad：视图控制器的view被加载完成。  </li>
+<li>viewWillAppear：视图控制器的view将要显示在window上。</li>
+<li>updateViewConstraints：视图控制器的view开始更新AutoLayout约束。</li>
+<li>viewWillLayoutSubviews：视图控制器的view将要更新内容视图的位置。</li>
+<li>viewDidLayoutSubviews：视图控制器的view已经更新视图的位置。</li>
+<li>viewDidAppear：视图控制器的view已经展示到window上。 </li>
+<li>viewWillDisappear：视图控制器的view将要从window上消失。</li>
+<li>viewDidDisappear：视图控制器的view已经从window上消失。</li>
+</ol>
+<h2 id="🔥OC中的反射机制"><a href="#🔥OC中的反射机制" class="headerlink" title="🔥OC中的反射机制"></a>🔥OC中的反射机制</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>). Class反射</span><br><span class="line">   通过类名的字符串形式实例化对象。</span><br><span class="line">    Class <span class="keyword">class</span> = <span class="built_in">NSClassFromString</span>(<span class="string">@"student"</span>); </span><br><span class="line">    Student *stu = [[<span class="keyword">class</span> alloc] init];</span><br><span class="line">   将类名变为字符串。</span><br><span class="line">    Class <span class="keyword">class</span> =[Student <span class="keyword">class</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>(<span class="keyword">class</span>);</span><br><span class="line"><span class="number">2</span>). SEL的反射</span><br><span class="line">   通过方法的字符串形式实例化方法。</span><br><span class="line">    SEL selector = <span class="built_in">NSSelectorFromString</span>(<span class="string">@"setName"</span>);  </span><br><span class="line">    [stu performSelector:selector withObject:<span class="string">@"Mike"</span>];</span><br><span class="line">   将方法变成字符串。</span><br><span class="line">    <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>*(setName:));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥懒加载"><a href="#🔥懒加载" class="headerlink" title="🔥懒加载"></a>🔥懒加载</h2><p>懒加载，亦叫延迟加载，即在第一次需要的时候才去加载，本质上就是对一个实例的getter方法的重写。<br>注意: 在getter方法内部不能使用self.去调用对象，因为点调用实际就是调用的getter方法，这样会造成循环调用，造成死循环。</p>
+<p>优点:<br>使用懒加载可以讲对象的创建单独管理，维护起来更方便<br>节省内存资源的耗损，只有当对象真正需要时才去创建。</p>
+<hr>
+<h2 id="🔥Runtime如何实现weak变量的自动置nil？"><a href="#🔥Runtime如何实现weak变量的自动置nil？" class="headerlink" title="🔥Runtime如何实现weak变量的自动置nil？"></a>🔥Runtime如何实现weak变量的自动置nil？</h2><p>内部实现 —— Runtime维护了一个Weak哈希表;<br>Key  : 对象的内存地址;<br>Value: 所有Weak指针地址的数组;</p>
+<p>简单来说，这个方法首先根据对象地址获取所以Weak指针地址的数组，然后遍历这个数组把其中的数据设为nil，最后把这个entry从Weak表中删除。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">PRIVATE_EXTERN <span class="keyword">void</span> </span><br><span class="line">arr_clear_deallocating(weak_table_t *weak_table, <span class="keyword">id</span> referent) &#123;</span><br><span class="line">  weak_entry_t *entry = weak_entry_for_referent(weak_table, referent);</span><br><span class="line">    <span class="keyword">if</span> (entry == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// zero out references</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; entry-&gt;referrers.num_allocated; ++i) &#123;</span><br><span class="line">       <span class="keyword">id</span> *referrer = entry-&gt;referrers.refs[i].referrer;</span><br><span class="line">       <span class="keyword">if</span> (referrer) &#123;</span><br><span class="line">           <span class="keyword">if</span> (*referrer == referent) &#123;</span><br><span class="line">                *referrer = <span class="literal">nil</span>;</span><br><span class="line">             &#125; <span class="keyword">else</span> <span class="keyword">if</span> (*referrer) &#123;</span><br><span class="line">               _objc_inform(<span class="string">"__weak variable @ %p holds %p instead of %p\n"</span>, referrer, *referrer, referent);</span><br><span class="line">             &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       weak_entry_remove_no_lock(weak_table, entry);</span><br><span class="line">       weak_table-&gt;num_weak_refs--;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥如何访问并修改一个类的私有属性"><a href="#🔥如何访问并修改一个类的私有属性" class="headerlink" title="🔥如何访问并修改一个类的私有属性"></a>🔥如何访问并修改一个类的私有属性</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>). 一种是通过KVC获取。</span><br><span class="line">setValue:<span class="string">@""</span> forKey:<span class="string">@""</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>). 通过runtime访问并修改私有属性。</span><br><span class="line"></span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">//记录属性的个数</span></span><br><span class="line">   Ivar *members = class_copyIvarList([person <span class="keyword">class</span>], &amp;count); <span class="comment">// 获取属性列表</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; count; i++) &#123; <span class="comment">// 遍历属性列表</span></span><br><span class="line">       Ivar ivar = members[i]; <span class="comment">// 取到属性</span></span><br><span class="line">       <span class="keyword">const</span> <span class="keyword">char</span> *memberName = ivar_getName(ivar); <span class="comment">// 获取属性名</span></span><br><span class="line">       <span class="built_in">NSString</span> *ivarName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%s"</span>, memberName];</span><br><span class="line">    </span><br><span class="line">       <span class="comment">//当属性名是_name的时候对其值进行修改</span></span><br><span class="line">       <span class="keyword">if</span> ([ivarName isEqualToString:<span class="string">@"_name"</span>]) &#123;</span><br><span class="line">           object_setIvar(person, ivar, <span class="string">@"李四"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥下面的代码输出什么？"><a href="#🔥下面的代码输出什么？" class="headerlink" title="🔥下面的代码输出什么？"></a>🔥下面的代码输出什么？</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Student</span> : <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)init &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">      <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>])); <span class="comment">// 输出: Student</span></span><br><span class="line">      <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">super</span> <span class="keyword">class</span>]));<span class="comment">// 输出: Student</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>解析：<br>self 是类的隐藏参数，指向当前调用方法的这个类的实例。<br>super是一个Magic Keyword，它本质是一个编译器标示符，和self是指向的同一个消息接收者。<br>不同的是：super会告诉编译器，调用class这个方法时，要去父类的方法，而不是本类里的。<br>上面的例子不管调用[self class]还是[super class]，接受消息的对象都是当前 Student *obj 这个对象。</p>
+<hr>
+<h2 id="🔥如何高性能的给UIImageView添加圆角"><a href="#🔥如何高性能的给UIImageView添加圆角" class="headerlink" title="🔥如何高性能的给UIImageView添加圆角"></a>🔥如何高性能的给UIImageView添加圆角</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)circleImage &#123;</span><br><span class="line">   <span class="comment">// NO代表透明</span></span><br><span class="line">   <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">   <span class="comment">// 获得上下文</span></span><br><span class="line">   <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">   <span class="comment">// 添加一个圆</span></span><br><span class="line">   <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height);</span><br><span class="line">   <span class="built_in">CGContextAddEllipseInRect</span>(ctx, rect);</span><br><span class="line">   <span class="comment">// 裁剪</span></span><br><span class="line">   <span class="built_in">CGContextClip</span>(ctx);</span><br><span class="line">   <span class="comment">// 将图片画上去</span></span><br><span class="line">   [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">   <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">   <span class="comment">// 关闭上下文</span></span><br><span class="line">   <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">   <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥请简单的介绍下APNS发送系统消息的机制"><a href="#🔥请简单的介绍下APNS发送系统消息的机制" class="headerlink" title="🔥请简单的介绍下APNS发送系统消息的机制"></a>🔥请简单的介绍下APNS发送系统消息的机制</h2><p>APNS优势：杜绝了类似安卓那种为了接受通知不停在后台唤醒程序保持长连接的行为，由iOS系统和APNS进行长连接替代。<br>APNS的原理：<br>   1). 应用在通知中心注册，由iOS系统向APNS请求返回设备令牌(device Token)<br>   2). 应用程序接收到设备令牌并发送给自己的后台服务器<br>   3). 服务器把要推送的内容和设备发送给APNS<br>   4). APNS根据设备令牌找到设备，再由iOS根据APPID把推送内容展示</p>
+<hr>
+<h2 id="🔥load-和-initialize"><a href="#🔥load-和-initialize" class="headerlink" title="🔥load 和 initialize"></a>🔥load 和 initialize</h2><p>load:<br>对于加入运行期系统的类及分类，必定会调用此方法，且仅调用一次。<br>iOS会在应用程序启动的时候调用load方法，在main函数之前调用</p>
+<p>执行子类的load方法前，会先执行所有超类的load方法，顺序为父类-&gt;子类-&gt;分类</p>
+<p>在load方法中使用其他类是不安全的，因为会调用其他类的load方法，而如果关系复杂的话，就无法判断出各个类的载入顺序，类只有初始化完成后，类实例才能进行正常使用</p>
+<p>load 方法不遵从继承规则，如果类本身没有实现load方法，那么系统就不会调用，不管父类有没有实现<br>load 方法中最常用的就是方法交换method swizzling</p>
+<p>initialize:<br>在首次使用该类之前由运行期系统（非人为）调用，且仅调用一次</p>
+<p>惰性调用，只有当程序使用相关类时，才会调用</p>
+<p>运行期系统会确保initialize方法是在线程安全的环境中执行，即，只有执行initialize的那个线程可以操作类或类实例。其他线程都要先阻塞，等待initialize执行完</p>
+<p>如果类未实现initialize方法，而其超类实现了，那么会运行超类的实现代码，而且会运行两次（load 第5点）</p>
+<p>initialize 遵循继承规则<br>初始化子类的的时候会先初始化父类，然后会调用父类的initialize方法，而子类没有覆写initialize方法，因此会再次调用父类的实现方法</p>
+<hr>
+<h2 id="🔥loadView的作用"><a href="#🔥loadView的作用" class="headerlink" title="🔥loadView的作用"></a>🔥loadView的作用</h2><p>当访问一个ViewController的view属性时，如果此时view的值是nil，那么，ViewController就会自动调用loadView这个方法:<br>1、如果你用了nib文件，重载这个方法就没有太大意义。因为loadView的作用就是加载nib。如果你重载了这个方法不调用super，那么nib文件就不会被加载。如果调用了super，那么view已经加载完了，你需要做的其他事情在viewDidLoad里面做更合适。<br>2、如果你没有用nib，这个方法默认就是创建一个空的view对象。如果你想自己控制view对象的创建，例如创建一个特殊尺寸的view，那么可以重载这个方法，自己创建一个UIView对象，然后指定 self.view = myView; 但这种情况也没有必要调用super，因为反正你也不需要在super方法里面创建的view对象。如果调用了super，那么就是浪费了一些资源而已 </p>
+<hr>
+<h2 id="🔥为什么要在主线程更新UI-回到主线程的方法是什么"><a href="#🔥为什么要在主线程更新UI-回到主线程的方法是什么" class="headerlink" title="🔥为什么要在主线程更新UI? 回到主线程的方法是什么?"></a>🔥为什么要在主线程更新UI? 回到主线程的方法是什么?</h2><p>因为UIKit不是线程安全的。<br>试想下面这几种情况:<br>· 两个线程同时设置同一个背景图片,那么很有可能因为当前图片被释放了两次而导致应用崩溃。<br>· 两个线程同时设置同一个UIView的背景颜色,那么很有可能渲染显示的是颜色A, 而此时在UIView逻辑树上的背景颜色属性为B。<br>· 两个线程同时操作view的树形结构:在线程A中for循环遍历并操作当前View的所有subView,然后此时线程B中将某个subView直接删除,这就导致了错乱还可能导致应用崩溃。</p>
+<p>回到主线程的三种方式:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.NSThread</span></span><br><span class="line">[<span class="keyword">self</span> performSelectorOnMainThread:<span class="keyword">@selector</span>(updateUI) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.NSOperationQueue</span></span><br><span class="line">[[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line">   <span class="keyword">self</span>.alert.text = <span class="string">@"Thanks!"</span>;</span><br><span class="line">   &#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.GCD</span></span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">  <span class="keyword">self</span>.alert.text = <span class="string">@"Thanks!"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别-如：NSInteger和int"><a href="#🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别-如：NSInteger和int" class="headerlink" title="🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别?如：NSInteger和int"></a>🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别?如：NSInteger和int</h2><p>object-c的数据类型有NSString，NSNumber，NSArray，NSMutableArray，NSData等等，这些都是class，创建后便是对象，而C语言的基本数据类型int，只是一定字节的内存空间，用于存放数值; NSInteger是基本数据类型，并不是NSNumber的子类，当然也不是NSObject的子类。NSInteger是基本数据类型Int或者Long的别名(NSInteger的定义typedef long NSInteger)，它的区别在于，NSInteger会根据系统是32位还是64位来决定是本身是int还是Long。</p>
+<hr>
+<h2 id="🔥id-和-instancetype-区别"><a href="#🔥id-和-instancetype-区别" class="headerlink" title="🔥id 和 instancetype 区别"></a>🔥id 和 instancetype 区别</h2><p>1、相同点<br>都可以作为方法的返回类型</p>
+<p>2、不同点<br>1）instancetype可以返回和方法所在类相同类型的对象，id只能返回未知类型的对象；<br>2）instancetype只能作为返回值，不能像id那样作为参数，比如下面的写法：</p>
+<hr>
+<h2 id="🔥如何对iOS设备进行性能测试"><a href="#🔥如何对iOS设备进行性能测试" class="headerlink" title="🔥如何对iOS设备进行性能测试?"></a>🔥如何对iOS设备进行性能测试?</h2><p>Profile-&gt; Instruments -&gt;Time Profiler</p>
+<hr>
+<h2 id="🔥设计模式是什么？-你知道哪些设计模式，并简要叙述？"><a href="#🔥设计模式是什么？-你知道哪些设计模式，并简要叙述？" class="headerlink" title="🔥设计模式是什么？ 你知道哪些设计模式，并简要叙述？**"></a>🔥设计模式是什么？ 你知道哪些设计模式，并简要叙述？**</h2><p>设计模式是一种编码经验，就是用比较成熟的逻辑去处理某一种类型的事情。<br>1). MVC模式：Model View Control，把模型 视图 控制器 层进行解耦合编写。<br>2). MVVM模式：Model View ViewModel 把模型 视图 业务逻辑 层进行解耦和编写。<br>3). 单例模式：通过static关键词，声明全局变量。在整个进程运行期间只会被赋值一次。<br>4). 观察者模式：KVO，观察某个属性的状态，状态发生变化时通知观察者。<br>5). 委托模式：代理+协议的组合。实现1对1的反向传值操作。<br>6). 工厂模式：通过一个类方法，批量的根据已有模板生产对象。</p>
+<hr>
+<h2 id="🔥如何实现一个单例-实现的原理是什么"><a href="#🔥如何实现一个单例-实现的原理是什么" class="headerlink" title="🔥如何实现一个单例, 实现的原理是什么?"></a>🔥如何实现一个单例, 实现的原理是什么?</h2><p>一个单例类，在整个程序中只有一个实例，并且提供一个类方法供全局调用，在编译时初始化这个类，然后一直保存在内存中，到程序（APP）退出时由系统自动释放这部分内存。</p>
+<p>对象指针是保存在静态区的，单例对象在堆中分配的内存空间;<br>实现代码: (使用GCD保证了线程安全)</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BHSingletonObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">static</span> BHSingletonObject *singletonObject = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)sharedInstance &#123;</span><br><span class="line">   <span class="comment">/*dispatch_once主要是根据onceToken的值来决定怎么去执行代码。</span></span><br><span class="line"><span class="comment">    当onceToken = 0 时，线程执行block中代码 (表示: 从未执行过)</span></span><br><span class="line"><span class="comment">    当onceToken = -1 时，线程跳过block中代码不执行 (表示: 已经执行过一次)</span></span><br><span class="line"><span class="comment">    当onceToken = 其他值 时，线程被线程被阻塞，等待onceToken值改变 (多线程中可见)</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">       singletonObject = [[BHSingletonObject alloc] init];</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> singletonObject;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁</span></span><br><span class="line">+ (<span class="keyword">void</span>)deallocInstance &#123;</span><br><span class="line">   onceToken = <span class="number">0</span>;</span><br><span class="line">   singletonObject = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥Block有几种形式-分别是什么"><a href="#🔥Block有几种形式-分别是什么" class="headerlink" title="🔥Block有几种形式? 分别是什么?"></a>🔥Block有几种形式? 分别是什么?</h2><p>根据Block对象创建时所处数据区不同而进行区别:<br>(1)全局静态 block(_NSConcreteGlobalBlock)，不会访问任何外部变量，执行完就销毁。</p>
+<p>(2)在栈中的 block(_NSConcreteStackBlock)，当函数返回时会被销毁，和第一种的区别就是调用了外部变量。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">3</span> animations:^&#123;</span><br><span class="line">   <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p>(3)在堆中的 block(_NSConcreteMallocBlock)，当引用计数为 0 时会被销毁。例如按钮的点击事件，一直存在，即使执行过，也不销毁，因为按钮还可能被点击。直到持有按钮的View被销毁，它才会被销毁。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^ButtonClickBlcok)();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TestView</span> : <span class="title">UIView</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) ButtonClickBlcok buttonClickBlcok;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥在执行main函数之前做了什么"><a href="#🔥在执行main函数之前做了什么" class="headerlink" title="🔥在执行main函数之前做了什么?"></a>🔥在执行main函数之前做了什么?</h2><p>1.动态库链接库<br>2.ImageLoader加载可执行文件, 里边是被编译过的符号,代码等<br>3.runtime与+load</p>
+<hr>
+<h2 id="🔥内存中的区域划分"><a href="#🔥内存中的区域划分" class="headerlink" title="🔥内存中的区域划分"></a>🔥内存中的区域划分</h2><p>1.栈：栈区（stack）由系统自动分配和释放，存放方法（函数）的参数值，局部变量的值等。采用“先进后出”或者“后进先出”的原则。特点：有序、速度快、容量小</p>
+<p>2.堆：一般由程序员分配和释放，如果不释放，则出现内存泄露。程序退出时，系统会回收你的内存。特点：无序、速度慢、容量大</p>
+<p>3.静态存储区：全局变量（外部变量）和静态变量都存放在静态区域。这里我们需要注意，未初始化的全局变量（外部变量）和静态变量存放在一块，已初始化的存放在一起。当程序结束时，系统回收</p>
+<p>4.常量区：存放常量的内存区域，程序结束时，系统回收</p>
+<p>5.代码区：存放二进制代码的区域</p>
+<hr>
+<h2 id="🔥关键字const"><a href="#🔥关键字const" class="headerlink" title="🔥关键字const"></a>🔥关键字const</h2><p>1).欲阻止一个变量被改变，可以使用 const 关键字。在定义该 const 变量时，通常需要对它进行初始化，因为以后就没有机会再去改变它了；<br>2).对指针来说，可以指定指针本身为 const，也可以指定指针所指的数据为 const，或二者同时指定为const；</p>
+<hr>
+<h2 id="🔥Runtime消息发送机制"><a href="#🔥Runtime消息发送机制" class="headerlink" title="🔥Runtime消息发送机制"></a>🔥Runtime消息发送机制</h2><p>使用消息机制前提，必须导入 #import &lt;objc/message.h&gt;</p>
+<p>一个对象的方法像这样[obj foo]，编译器转成消息发送objc_msgSend(obj, foo)，Runtime时执行的流程是这样的：<br>首先，通过obj的isa指针找到它的 class ;<br>在 class 的 method list 找 foo ;<br>如果 class 中没到 foo，继续往它的 superclass 中找 ;<br>一旦找到 foo 这个函数，就去执行它的实现IMP 。</p>
+<p>若是每次调用方法, 都去查找method list, 就会很耗费性能和时间, 所以, object_cache是一个重要的角色:<br>当再次收到foo 消息的时候，可以直接在cache 里找到，避免去遍历objc_method_list</p>
+<hr>
+<h2 id="🔥Runtime消息转发机制"><a href="#🔥Runtime消息转发机制" class="headerlink" title="🔥Runtime消息转发机制"></a>🔥Runtime消息转发机制</h2><p>发送消息会在相关的类对象中搜索方法列表，如果找不到则会沿着继承树向上一直搜索知道继承树根部（通常为NSObject），如果还是找不到并且消息转发都失败了就回执行doesNotRecognizeSelector:方法报unrecognized selector错。那么消息转发到底是什么呢？在未找到方法时候, 进行三次挽救:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>) + (<span class="built_in">BOOL</span>)resolveInstanceMethod:或者 +(<span class="built_in">BOOL</span>)resolveClassMethod:, 若返回<span class="literal">NO</span>, 则进入下一步</span><br><span class="line"><span class="number">2</span>) - (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)aSelector , 返回<span class="literal">nil</span>, 则进入下一步</span><br><span class="line"><span class="number">3</span>) - (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector, </span><br><span class="line">若返回为<span class="literal">nil</span>: 则: doesNotRecognizeSelector 发生崩溃</span><br><span class="line">若返回不为<span class="literal">nil</span>, 则调用 - (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)anInvocation,进行挽救</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥解释对Runloop的理解"><a href="#🔥解释对Runloop的理解" class="headerlink" title="🔥解释对Runloop的理解"></a>🔥解释对Runloop的理解</h2><p>一个run loop就是一个事件处理的循环，用来不停的调度工作以及处理输入事件。其实内部就是do－while循环，这个循环内部不断地处理各种任务（比 如Source，Timer，Observer）。使用run loop的目的是让你的线程在有工作的时候忙于工作，而没工作的时候处于休眠状态。<br>run loop和线程是紧密相连的，可以这样说run loop是为了线程而生，没有线程，它就没有存在的必要;</p>
+<p>iOS的应用程序里面，程序启动后会有一个如下的main()函数, 生成自动创建一个主线程, 并伴随着一个主run loop的产生;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取主线程的RunLoop对象</span></span><br><span class="line">[<span class="built_in">NSRunLoop</span> mainRunLoop];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前的线程的RunLoop对象，注意RunLoop是懒加载，currentRunLoop时会自动创建对象, 子线程中, run loop默认是没有启动的，可以使用[runloop run]进行开启;</span></span><br><span class="line">[<span class="built_in">NSRunLoop</span> currentRunLoop];</span><br><span class="line"></span><br><span class="line">runloop变化的可监测节点: </span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">CF_OPTIONS</span>(<span class="built_in">CFOptionFlags</span>, <span class="built_in">CFRunLoopActivity</span>) &#123;</span><br><span class="line">   kCFRunLoopEntry         = (<span class="number">1</span>UL &lt;&lt; <span class="number">0</span>), <span class="comment">// 即将进入Loop</span></span><br><span class="line">   kCFRunLoopBeforeTimers  = (<span class="number">1</span>UL &lt;&lt; <span class="number">1</span>), <span class="comment">// 即将处理 Timer</span></span><br><span class="line">   kCFRunLoopBeforeSources = (<span class="number">1</span>UL &lt;&lt; <span class="number">2</span>), <span class="comment">// 即将处理 Source</span></span><br><span class="line">   kCFRunLoopBeforeWaiting = (<span class="number">1</span>UL &lt;&lt; <span class="number">5</span>), <span class="comment">// 即将进入休眠</span></span><br><span class="line">   kCFRunLoopAfterWaiting  = (<span class="number">1</span>UL &lt;&lt; <span class="number">6</span>), <span class="comment">// 刚从休眠中唤醒</span></span><br><span class="line">   kCFRunLoopExit          = (<span class="number">1</span>UL &lt;&lt; <span class="number">7</span>), <span class="comment">// 即将退出Loop</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Runloop模式: 系统默认注册了<span class="number">5</span>个Mode：</span><br><span class="line"><span class="number">1.</span><span class="built_in">NSDefaultRunLoopMode</span>：App 的默认 Mode，通常主线程是在这个 Mode 下运行(默认情况下运行)</span><br><span class="line"><span class="number">2.</span><span class="built_in">UITrackingRunLoopMode</span>：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他Mode 影响(操作 UI 界面的情况下运行)</span><br><span class="line"><span class="number">3.</span><span class="built_in">UIInitializationRunLoopMode</span>：在刚启动 App 时进入的第一个 Mode，启动完成后就不再使用</span><br><span class="line"><span class="number">4.</span>GSEventReceiveRunLoopMode：接受系统事件的内部 Mode，通常用不到(绘图服务)</span><br><span class="line"><span class="number">5.</span><span class="built_in">NSRunLoopCommonModes</span>：这是一个占位用的 Mode，不是一种真正的 Mode (RunLoop无法启动该模式，设置这种模式下，默认和操作 UI 界面时线程都可以运行，但无法改变 RunLoop 同时只能在一种模式下运行的本质)</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">   [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSTimer</span> *timer = [<span class="built_in">NSTimer</span> timerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 在默认模式下添加的 timer 当我们拖拽 textView 的时候，不会运行 run 方法</span></span><br><span class="line">   [[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 在 UI 跟踪模式下添加 timer 当我们拖拽 textView 的时候，run 方法才会运行</span></span><br><span class="line">   [[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">UITrackingRunLoopMode</span>];</span><br><span class="line"></span><br><span class="line">   <span class="comment">// timer 可以运行在两种模式下，相当于上面两句代码写在一起</span></span><br><span class="line">   [[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥对property属性的关键字的理解"><a href="#🔥对property属性的关键字的理解" class="headerlink" title="🔥对property属性的关键字的理解"></a>🔥对property属性的关键字的理解</h2><p>assign：用于非指针变量，一般用于基础类型和C数据类型，这些类型不是对象，统一由系统栈进行内存管理。<br>weak：对对象的弱引用，不增加对象的引用计数，也不持有对象，当对象消失后指针自动指向nil，所以这里也就防止了野指针的存在<br>strong：对对象的强引用，会增加对象的引用计数.<br>copy：建立一个引用计数为1的新对象，赋值时对传入值进行一份拷贝，所以使用copy关键字的时候，你将一个对象复制给该属性，该属性并不会持有那个对象，而是会创建一个新对象，并将那个对象的值拷贝给它。而使用copy关键字的对象必须要实现NSCopying协议。 </p>
+<hr>
+<h2 id="🔥开辟子线程的方式"><a href="#🔥开辟子线程的方式" class="headerlink" title="🔥开辟子线程的方式"></a>🔥开辟子线程的方式</h2><ol>
+<li><p>通过 NSThread 开辟子线程<br>// 创建线程对象.</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSThread</span> *thread1 = [[<span class="built_in">NSThread</span> alloc]initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(handleFun:) object:<span class="literal">nil</span>];</span><br><span class="line">thread1.name = <span class="string">@"sum"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动开启</span></span><br><span class="line">[thread1 start];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建线程对象自动开启</span></span><br><span class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(handleFun:) toTarget:<span class="keyword">self</span> withObject:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//取消线程</span></span><br><span class="line">[thread1 cancel];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 NSOperationQueue 开辟子线程<br>使用 NSOperation 和 NSOperationQueue 进行多线程开发类似于C#中的线程池，只要将一个NSOperation（实际开中需要使用其子类NSInvocationOperation、NSBlockOperation）放到NSOperationQueue这个队列中线程就会依次启动。NSOperationQueue负责管理、执行所有的NSOperation，在这个过程中可以更加容易的管理线程总数和控制线程之间的依赖关系。<br>NSOperation有两个常用子类用于创建线程操作：NSInvocationOperation和NSBlockOperation，两种方式本质没有区别，但是是后者使用Block形式进行代码组织，使用相对方便。</p>
+</li>
+</ol>
+<p>注意：操作本身只是封装了要执行的相关方法，并没有开辟线程，没有主线程之分，在哪个线程中都能执行。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 创建5个操作</span></span><br><span class="line">   <span class="built_in">NSInvocationOperation</span> *invo1 = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(printString:) object:<span class="string">@"11"</span>];</span><br><span class="line">   <span class="built_in">NSInvocationOperation</span> *invo2 = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(printString:) object:<span class="string">@"22"</span>];</span><br><span class="line">   <span class="built_in">NSInvocationOperation</span> *invo3 = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(printString:) object:<span class="string">@"33"</span>];</span><br><span class="line">   <span class="built_in">NSInvocationOperation</span> *invo4 = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(printString:) object:<span class="string">@"44"</span>];</span><br><span class="line">   <span class="built_in">NSInvocationOperation</span> *invo5 = [[<span class="built_in">NSInvocationOperation</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(printString:) object:<span class="string">@"55"</span>];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 2. NSBlockOperation 创建2个block操作</span></span><br><span class="line">   <span class="built_in">NSBlockOperation</span> *block1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"666666"</span>);</span><br><span class="line">   &#125;];</span><br><span class="line">   <span class="built_in">NSBlockOperation</span> *block2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"777777"</span>);</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 3. 创建 操作队列</span></span><br><span class="line">   <span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</span><br><span class="line">   <span class="comment">// 4. 设置最大并发数</span></span><br><span class="line">   queue.maxConcurrentOperationCount = <span class="number">1</span>; <span class="comment">// 设置为 1，顺序执行</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 最大并发数控制的是同一时间点，能够执行的任务数。如果为1，则同时执行1个，根据队列FIFO特点，一定是顺序执行。 如果不为1，则可以同时执行多个任务，同时执行任务，称为－－并发执行。</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 5. 添加操作－－将操作添加到队列</span></span><br><span class="line">   [queue addOperation:invo1];</span><br><span class="line">   [queue addOperation:invo2];</span><br><span class="line">   [queue addOperation:invo3];</span><br><span class="line">   [queue addOperation:invo4];</span><br><span class="line">   [queue addOperation:invo5];</span><br><span class="line">   [queue addOperation:block1];</span><br><span class="line">   [queue addOperation:block2];</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 提示: 添加到队列中的任务会自动执行，队列内部会开辟子线程，任务放在子线程中执行。</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">//方法2：直接使用操队列添加操作,eg:block2</span></span><br><span class="line">   [queue addOperationWithBlock:^&#123;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"777777"</span>);</span><br><span class="line">   &#125;];</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>通过 GCD 开辟子线程<br>在 GCD 中，加入了两个非常重要的概念： 任务 和 队列。<br>任务有两种执行方式： 同步执行 和 异步执行，他们之间的区别是 是否会创建新的线程。</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 串行队列的创建方法</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"net.bujige.testQueue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="comment">// 并发队列的创建方法</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"net.bujige.testQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line"></span><br><span class="line"><span class="comment">//并行队列</span></span><br><span class="line">   <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"concurrent"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//异步</span></span><br><span class="line">   __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>)weakSelf = <span class="keyword">self</span>;</span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       [weakSelf handleFun:<span class="literal">nil</span>];</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       [weakSelf handleFun:<span class="literal">nil</span>];</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>同步任务+串行队列: 不会开启新线程，在当前线程执行任务。任务串行的，执行完一个，再执行下一个。<br>异步任务+串行队列: 会开启一个新线程，但是因为任务是串行的，执行完一个任务，再执行下一个任务。</p>
+<p>同步任务+并行队列: 不会开启新线程，在当前线程执行任务。任务串行的，执行完一个，再执行下一个。<br>异步任务+并行队列: 可以开启多个线程，任务交替（同时）执行。</p>
+<p>同步执行+主队列: 特点(主线程调用)：互等卡主不执行。<br>异步执行+主队列: 只在主线程中执行任务，执行完一个任务，再执行下一个任务</p>
+<hr>
+<h2 id="🔥GCD栅栏方法dispatch-barrier"><a href="#🔥GCD栅栏方法dispatch-barrier" class="headerlink" title="🔥GCD栅栏方法dispatch_barrier"></a>🔥GCD栅栏方法dispatch_barrier</h2><p>dispatch_barrier_async<br>第一组操作执行完之后，才能开始执行第二组操作。这样我们就需要一个相当于栅栏一样的一个方法将两组异步执行的操作组给分割起来，当然这里的操作组里可以包含一个或多个任务<br>// 栅栏方法 dispatch_barrier_asyn</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)barrier &#123;</span><br><span class="line">   <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"net.bujige.testQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务1</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];              <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"1---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);      <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务2</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];              <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"2---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);      <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务 barrier</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">         [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];              <span class="comment">// 模拟耗时操作</span></span><br><span class="line">         <span class="built_in">NSLog</span>(<span class="string">@"barrier---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);<span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务3</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];         <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"3---%@"</span>,[<span class="built_in">NSThread</span> currentThread]); <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务4</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];         <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"4---%@"</span>,[<span class="built_in">NSThread</span> currentThread]); <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥GCD-队列组：dispatch-group-和-dispatch-group-notify"><a href="#🔥GCD-队列组：dispatch-group-和-dispatch-group-notify" class="headerlink" title="🔥GCD 队列组：dispatch_group 和  dispatch_group_notify"></a>🔥GCD 队列组：dispatch_group 和  dispatch_group_notify</h2><p>分别异步执行2个耗时任务，然后当2个耗时任务都执行完毕后再回到主线程执行任务。这时候我们可以用到 GCD 的队列组</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)groupEnterAndLeave &#123;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"currentThread---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);  <span class="comment">// 打印当前线程</span></span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"group---begin"</span>);</span><br><span class="line">   </span><br><span class="line">   dispatch_group_t group = dispatch_group_create();</span><br><span class="line">   <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">   dispatch_group_enter(group);</span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务1</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];           <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"1---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);   <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">       dispatch_group_leave(group);</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   dispatch_group_enter(group);</span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="comment">// 追加任务2</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];           <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"2---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);   <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">       dispatch_group_leave(group);</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</span><br><span class="line">       <span class="comment">// 等前面的异步操作都执行完毕后，回到主线程.</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">           [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];          <span class="comment">// 模拟耗时操作</span></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"3---%@"</span>,[<span class="built_in">NSThread</span> currentThread]);  <span class="comment">// 打印当前线程</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"group---end"</span>);</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥GCD-信号量：dispatch-semaphore"><a href="#🔥GCD-信号量：dispatch-semaphore" class="headerlink" title="🔥GCD 信号量：dispatch_semaphore"></a>🔥GCD 信号量：dispatch_semaphore</h2><p>dispatch_semaphore_create：创建一个Semaphore并初始化信号的总量<br>dispatch_semaphore_signal：发送一个信号，让信号总量加1<br>dispatch_semaphore_wait：可以使总信号量减1，当信号总量为0时就会一直等待（阻塞所在线程），否则就可以正常执行。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">dispatch_semaphore_t sem = dispatch_semaphore_create(<span class="number">0</span>);</span><br><span class="line">[<span class="keyword">self</span> methodWithABlock:^(<span class="keyword">id</span> result)&#123;</span><br><span class="line">   <span class="comment">//写block中做的事情</span></span><br><span class="line">   dispatch_semaphore_signal(sem);</span><br><span class="line">&#125;];</span><br><span class="line">[<span class="keyword">self</span> methodWithABlock:^(<span class="keyword">id</span> result)&#123;</span><br><span class="line">   <span class="comment">//写block中做的事情</span></span><br><span class="line">   dispatch_semaphore_signal(sem);</span><br><span class="line">&#125;];</span><br><span class="line">dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);</span><br><span class="line">dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔥http和https的区别是什么"><a href="#🔥http和https的区别是什么" class="headerlink" title="🔥http和https的区别是什么?"></a>🔥http和https的区别是什么?</h2><p>HTTP：超文本传输协议 (HTTP-Hypertext transfer protocol) 是一种详细规定了浏览器和万维网服务器之间互相通信的规则，通过因特网传送万维网文档的数据传送协议。<br>HTTPS：使用安全套接字层(SSL)进行信息交换，简单来说它是HTTP的安全版(HTTP + SSL);</p>
+<hr>
+<p>HTTPS和HTTP的区别：</p>
+<ol>
+<li>https协议需要到ca申请证书，一般免费证书很少，需要交费。</li>
+<li>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议</li>
+<li>http和https使用的是完全不同的连接方式用的端口也不一样,前者是80,后者是443。</li>
+<li>http的连接很简单,是无状态的; HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议 要比http协议安全</li>
+</ol>
+<hr>
+<p>Http握手过程:<br>第一次握手：客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认；</p>
+<p>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
+<p>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。</p>
+<p>HTTPS握手过程:</p>
+<ol>
+<li><p>客户端发起HTTPS请求</p>
+</li>
+<li><p>服务端的配置</p>
+</li>
+</ol>
+<p>采用HTTPS协议的服务器必须要有一套数字证书，可以是自己制作或者CA证书。区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用CA证书则不会弹出提示页面。这套证书其实就是一对公钥和私钥。公钥给别人加密使用，私钥给自己解密使用。</p>
+<ol start="3">
+<li>传送证书</li>
+</ol>
+<p>这个证书其实就是公钥，只是包含了很多信息，如证书的颁发机构，过期时间等。</p>
+<ol start="4">
+<li>客户端解析证书</li>
+</ol>
+<p>这部分工作是有客户端的TLS来完成的，首先会验证公钥是否有效，比如颁发机构，过期时间等，如果发现异常，则会弹出一个警告框，提示证书存在问题。如果证书没有问题，那么就生成一个随即值，然后用证书对该随机值进行加密。</p>
+<ol start="5">
+<li>传送加密信息</li>
+</ol>
+<p>这部分传送的是用证书加密后的随机值，目的就是让服务端得到这个随机值，以后客户端和服务端的通信就可以通过这个随机值来进行加密解密了。</p>
+<ol start="6">
+<li>服务段解密信息</li>
+</ol>
+<p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密。所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。</p>
+<ol start="7">
+<li>传输加密后的信息</li>
+</ol>
+<p>这部分信息是服务段用私钥加密后的信息，可以在客户端被还原。</p>
+<ol start="8">
+<li>客户端解密信息</li>
+</ol>
+<p>客户端用之前生成的私钥解密服务段传过来的信息，于是获取了解密后的内容。</p>
+<p>PS: 整个握手过程第三方即使监听到了数据，也束手无策。</p>
+<h2 id="🔥RSA-和-AES-加密"><a href="#🔥RSA-和-AES-加密" class="headerlink" title="🔥RSA 和 AES 加密"></a>🔥RSA 和 AES 加密</h2><p>RSA<br>非对称加密，公钥加密，私钥解密，反之亦然。由于需要大数的乘幂求模等算法，运行速度慢，不易于硬件实现。<br>通常私钥长度有512bit，1024bit，2048bit，4096bit，长度越长，越安全，但是生成密钥越慢，加解密也越耗时。<br>既然是加密，那肯定是不希望别人知道我的消息，所以只有我才能解密，所以可得出公钥负责加密，私钥负责解密；<br>同理，既然是签名，那肯定是不希望有人冒充我发消息，只有我才能发布这个签名，所以可得出私钥负责签名，公钥负责验证。</p>
+<p>AES<br>对称加密，密钥最长只有256个bit，执行速度快，易于硬件实现。由于是对称加密，密钥需要在传输前通讯双方获知。<br>基于以上特点，通常使用RSA来首先传输AES的密钥给对方，然后再使用AES来进行加密通讯。</p>
+<h2 id="🔥讲一下MVC和MVVM，MVP"><a href="#🔥讲一下MVC和MVVM，MVP" class="headerlink" title="🔥讲一下MVC和MVVM，MVP?"></a>🔥讲一下MVC和MVVM，MVP?</h2><p>MVC:<br>• Models（模型） —  数据层，或者负责处理数据的 数据接口层。比如 Person 和 PersonDataProvider 类<br>• Views（视图） - 展示层(GUI)。对于 iOS 来说所有以 UI 开头的类基本都属于这层。<br>• Controller（控制器） - 它是 Model 和 View 之间的胶水或者说是中间人。一般来说，当用户对 View 有操作时它负责去修改相应 Model；当 Model 的值发生变化时它负责去更新对应 View。</p>
+<p>MVVM:<br>在MVVM 中，view 和 view controller正式联系在一起，我们把它们视为一个组件<br>view 和 view controller 都不能直接引用model，而是引用视图模型（viewModel）<br>viewModel 是一个放置用户输入验证逻辑，视图显示逻辑，发起网络请求和其他代码的地方</p>
+<p>MVP:<br>MVP 是从经典的模式MVC演变而来，它们的基本思想有相通的地方：Controller/Presenter负责逻辑的处理，Model提供数据，View负责显示。作为一种新的模式，MVP与MVC有着一个重大的区别：在MVP中View并不直接使用Model，它们之间的通信是通过Presenter (MVC中的Controller)来进行的，所有的交互都发生在Presenter内部，而在MVC中View会从直接Model中读取数据而不是通过 Controller。</p>
+<hr>
+<h2 id="🔥SDWebImage内部实现过程"><a href="#🔥SDWebImage内部实现过程" class="headerlink" title="🔥SDWebImage内部实现过程"></a>🔥SDWebImage内部实现过程</h2><p>入口 setImageWithURL:placeholderImage:options: 会先把 placeholderImage 显示，然后 SDWebImageManager 根据 URL 开始处理图片。</p>
+<p>进入 SDWebImageManager-downloadWithURL:delegate:options:userInfo:，交给 SDImageCache 从缓存查找图片是否已经下载 queryDiskCacheForKey:delegate:userInfo:.</p>
+<p>先从内存图片缓存查找是否有图片，如果内存中已经有图片缓存，SDImageCacheDelegate 回调 imageCache:didFindImage:forKey:userInfo: 到 SDWebImageManager。</p>
+<p>SDWebImageManagerDelegate 回调 webImageManager:didFinishWithImage: 到 UIImageView+WebCache 等前端展示图片。</p>
+<p>如果内存缓存中没有，生成 NSInvocationOperation 添加到队列开始从硬盘查找图片是否已经缓存。</p>
+<p>根据 URLKey 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate:。</p>
+<p>如果上一操作从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。SDImageCacheDelegate 回调 imageCache:didFindImage:forKey:userInfo:。进而回调展示图片。</p>
+<p>如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，回调 imageCache:didNotFindImageForKey:userInfo:。</p>
+<p>共享或重新生成一个下载器 SDWebImageDownloader 开始下载图片。</p>
+<p>图片下载由 NSURLConnection 来做，实现相关 delegate 来判断图片下载中、下载完成和下载失败。</p>
+<p>connection:didReceiveData: 中利用 ImageIO 做了按图片下载进度加载效果。</p>
+<p>connectionDidFinishLoading: 数据下载完成后交给 SDWebImageDecoder 做图片解码处理。</p>
+<p>图片解码处理在一个 NSOperationQueue 完成，不会拖慢主线程 UI。如果有需要对下载的图片进行二次处理，最好也在这里完成，效率会好很多。</p>
+<p>在主线程 notifyDelegateOnMainThreadWithInfo: 宣告解码完成，imageDecoder:didFinishDecodingImage:userInfo: 回调给 SDWebImageDownloader。</p>
+<p>imageDownloader:didFinishWithImage: 回调给 SDWebImageManager 告知图片下载完成。</p>
+<p>通知所有的 downloadDelegates 下载完成，回调给需要的地方展示图片。</p>
+<p>将图片保存到 SDImageCache 中，内存缓存和硬盘缓存同时保存。写文件到硬盘也在以单独 NSInvocationOperation 完成，避免拖慢主线程。</p>
+<p>SDImageCache 在初始化的时候会注册一些消息通知，在内存警告或退到后台的时候清理内存图片缓存，应用结束的时候清理过期图片。</p>
+<p>SDWI 也提供了 UIButton+WebCache 和 MKAnnotationView+WebCache，方便使用。<br>SDWebImagePrefetcher 可以预先下载图片，方便后续使用。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/06/iOS之URL参数解析/" rel="prev" title="iOS之URL参数解析">
+                iOS之URL参数解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4" alt="BaHui·Qiao">
+            
+              <p class="site-author-name" itemprop="name">BaHui·Qiao</p>
+              <p class="site-description motion-element" itemprop="description">Know what it is, know why it is!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Objective-C语言特点"><span class="nav-number">1.</span> <span class="nav-text">🔥Objective-C语言特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Objective-C的类可以多重继承么？可以实现多个接口么"><span class="nav-number">2.</span> <span class="nav-text">🔥Objective-C的类可以多重继承么？可以实现多个接口么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Category是什么？重写一个类的方式用继承好还是分类好"><span class="nav-number">3.</span> <span class="nav-text">🔥Category是什么？重写一个类的方式用继承好还是分类好?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥nonatomic-和-atomic的区别？atomic是绝对的线程安全么？"><span class="nav-number">4.</span> <span class="nav-text">🔥nonatomic 和 atomic的区别？atomic是绝对的线程安全么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥浅拷贝-与-深拷贝"><span class="nav-number">5.</span> <span class="nav-text">🔥浅拷贝 与 深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥这个写法会出什么问题：-property-nonatomic-copy-NSMutableArray-array"><span class="nav-number">6.</span> <span class="nav-text">🔥这个写法会出什么问题：@property (nonatomic, copy) NSMutableArray *array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥在Block内部修改局部变量需要做什么操作-为什么"><span class="nav-number">7.</span> <span class="nav-text">🔥在Block内部修改局部变量需要做什么操作? 为什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥如何让自定义的类具备Copy或者MutableCopy功能"><span class="nav-number">8.</span> <span class="nav-text">🔥如何让自定义的类具备Copy或者MutableCopy功能?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Objective-C-如何对内存管理的，说说你的看法和解决方法"><span class="nav-number">9.</span> <span class="nav-text">🔥Objective-C 如何对内存管理的，说说你的看法和解决方法?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥我们说的OC是动态运行时语言是什么意思"><span class="nav-number">10.</span> <span class="nav-text">🔥我们说的OC是动态运行时语言是什么意思?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥delegate常用的属性修饰符是什么-为什么"><span class="nav-number">11.</span> <span class="nav-text">🔥delegate常用的属性修饰符是什么? 为什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥KVC的实现原理？"><span class="nav-number">12.</span> <span class="nav-text">🔥KVC的实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥KV0的实现原理"><span class="nav-number">13.</span> <span class="nav-text">🔥KV0的实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥什么是method-swizzling"><span class="nav-number">14.</span> <span class="nav-text">🔥什么是method swizzling?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Category能否添加成员变量-Category中能添加属性、方法吗？"><span class="nav-number">15.</span> <span class="nav-text">🔥Category能否添加成员变量? Category中能添加属性、方法吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥简述ViewController生命周期"><span class="nav-number">16.</span> <span class="nav-text">🔥简述ViewController生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥OC中的反射机制"><span class="nav-number">17.</span> <span class="nav-text">🔥OC中的反射机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥懒加载"><span class="nav-number">18.</span> <span class="nav-text">🔥懒加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Runtime如何实现weak变量的自动置nil？"><span class="nav-number">19.</span> <span class="nav-text">🔥Runtime如何实现weak变量的自动置nil？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥如何访问并修改一个类的私有属性"><span class="nav-number">20.</span> <span class="nav-text">🔥如何访问并修改一个类的私有属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥下面的代码输出什么？"><span class="nav-number">21.</span> <span class="nav-text">🔥下面的代码输出什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥如何高性能的给UIImageView添加圆角"><span class="nav-number">22.</span> <span class="nav-text">🔥如何高性能的给UIImageView添加圆角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥请简单的介绍下APNS发送系统消息的机制"><span class="nav-number">23.</span> <span class="nav-text">🔥请简单的介绍下APNS发送系统消息的机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥load-和-initialize"><span class="nav-number">24.</span> <span class="nav-text">🔥load 和 initialize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥loadView的作用"><span class="nav-number">25.</span> <span class="nav-text">🔥loadView的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥为什么要在主线程更新UI-回到主线程的方法是什么"><span class="nav-number">26.</span> <span class="nav-text">🔥为什么要在主线程更新UI? 回到主线程的方法是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别-如：NSInteger和int"><span class="nav-number">27.</span> <span class="nav-text">🔥常见的object-c的数据类型有那些，和C的基本数据类型有什么区别?如：NSInteger和int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥id-和-instancetype-区别"><span class="nav-number">28.</span> <span class="nav-text">🔥id 和 instancetype 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥如何对iOS设备进行性能测试"><span class="nav-number">29.</span> <span class="nav-text">🔥如何对iOS设备进行性能测试?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥设计模式是什么？-你知道哪些设计模式，并简要叙述？"><span class="nav-number">30.</span> <span class="nav-text">🔥设计模式是什么？ 你知道哪些设计模式，并简要叙述？**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥如何实现一个单例-实现的原理是什么"><span class="nav-number">31.</span> <span class="nav-text">🔥如何实现一个单例, 实现的原理是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Block有几种形式-分别是什么"><span class="nav-number">32.</span> <span class="nav-text">🔥Block有几种形式? 分别是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥在执行main函数之前做了什么"><span class="nav-number">33.</span> <span class="nav-text">🔥在执行main函数之前做了什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥内存中的区域划分"><span class="nav-number">34.</span> <span class="nav-text">🔥内存中的区域划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥关键字const"><span class="nav-number">35.</span> <span class="nav-text">🔥关键字const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Runtime消息发送机制"><span class="nav-number">36.</span> <span class="nav-text">🔥Runtime消息发送机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥Runtime消息转发机制"><span class="nav-number">37.</span> <span class="nav-text">🔥Runtime消息转发机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥解释对Runloop的理解"><span class="nav-number">38.</span> <span class="nav-text">🔥解释对Runloop的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥对property属性的关键字的理解"><span class="nav-number">39.</span> <span class="nav-text">🔥对property属性的关键字的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥开辟子线程的方式"><span class="nav-number">40.</span> <span class="nav-text">🔥开辟子线程的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥GCD栅栏方法dispatch-barrier"><span class="nav-number">41.</span> <span class="nav-text">🔥GCD栅栏方法dispatch_barrier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥GCD-队列组：dispatch-group-和-dispatch-group-notify"><span class="nav-number">42.</span> <span class="nav-text">🔥GCD 队列组：dispatch_group 和  dispatch_group_notify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥GCD-信号量：dispatch-semaphore"><span class="nav-number">43.</span> <span class="nav-text">🔥GCD 信号量：dispatch_semaphore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥http和https的区别是什么"><span class="nav-number">44.</span> <span class="nav-text">🔥http和https的区别是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥RSA-和-AES-加密"><span class="nav-number">45.</span> <span class="nav-text">🔥RSA 和 AES 加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥讲一下MVC和MVVM，MVP"><span class="nav-number">46.</span> <span class="nav-text">🔥讲一下MVC和MVVM，MVP?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔥SDWebImage内部实现过程"><span class="nav-number">47.</span> <span class="nav-text">🔥SDWebImage内部实现过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaHui·Qiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

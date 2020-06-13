@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Smile">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开发中Xcode常用的快捷代码块, 提高开发效率, 通过自定义的快捷字符, 可以快速创建代码, 节约开发时间">
+<meta name="keywords" content="iOS Development">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode快捷代码">
+<meta property="og:url" content="http://yoursite.com/2019/07/15/Xcode快捷代码/index.html">
+<meta property="og:site_name" content="iOS Developer">
+<meta property="og:description" content="开发中Xcode常用的快捷代码块, 提高开发效率, 通过自定义的快捷字符, 可以快速创建代码, 节约开发时间">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-30T16:18:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode快捷代码">
+<meta name="twitter:description" content="开发中Xcode常用的快捷代码块, 提高开发效率, 通过自定义的快捷字符, 可以快速创建代码, 节约开发时间">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/15/Xcode快捷代码/">
+
+
+
+
+
+  <title>Xcode快捷代码 | iOS Developer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOS Developer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding is life!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/BaHui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/Xcode快捷代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaHui·Qiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS Developer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Xcode快捷代码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T23:32:00+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> <strong>开发中Xcode常用的快捷代码块, 提高开发效率, 通过自定义的快捷字符, 可以快速创建代码, 节约开发时间</strong> </p>
+<a id="more"></a>
+<h2 id="添加"><a href="#添加" class="headerlink" title="添加:"></a>添加:</h2><p>1.关闭Xcode;<br>2.将Demo中的<code>CodeSnippets</code>文件夹下的文件拷贝到<strong>~/Library/Developer/Xcode/UserData/CodeSnippets</strong>, 
+  若本地没有<code>CodeSnippets</code>文件夹,  则新建一个文件夹, 名字为<code>CodeSnippets</code> 然后把文件拷贝在这个文件夹下.<br>3.重新启动Xcode, 可以看到工具栏多出来新增的代码块.</p>
+<h2 id="自定义内容"><a href="#自定义内容" class="headerlink" title="自定义内容:"></a>自定义内容:</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 静态字符: static_string</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> &lt;<span class="meta">#StringName#&gt; = <span class="meta-string">&lt;#StringValue#&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态数值: static_basic</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> &lt;<span class="meta">#BasicType#&gt; <span class="meta-string">&lt;#BasicName#&gt;</span> = <span class="meta-string">&lt;#BasicValue#&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Strong 类型属性: property_strong</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Assign 类型属性: property_assign</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) &lt;<span class="meta">#Class#&gt; <span class="meta-string">&lt;#property#&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Copy 类型属性: property_copy</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#name#&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Weak 类型属性: property_weak</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Delegate 类型属性: property_delegate</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span> &lt;&lt;<span class="meta">#protocol#&gt;&gt; delegate;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Mark生命周期: mark_VCLifeCycle</span></span><br><span class="line"><span class="meta">#pragma mark - ViewController LifeCycle</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mark按钮点击: mark_IBAction</span></span><br><span class="line"><span class="meta">#pragma mark - ButtonAction Methods</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mark公开方法: mark_Public Methods</span></span><br><span class="line"><span class="meta">#pragma mark - Public Methods</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mark私有方法: mark_Private Methods</span></span><br><span class="line"><span class="meta">#pragma mark - Private Methods</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mark自定义: mark_Normal</span></span><br><span class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;#description#&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// Mark滚动视图代理: mark_UIScrollViewDelegate</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">#pragma mark - UIScrollViewDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// Mark表代理: mark_UITableViewDelegate</span></span><br><span class="line"> <span class="meta">#pragma mark - UITableViewDataSource</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView &#123;</span><br><span class="line">   <span class="keyword">return</span> &lt;<span class="meta">#Sections#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">   <span class="keyword">return</span> &lt;<span class="meta">#RowCount#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">  &lt;<span class="meta">#CellClass#&gt; *<span class="meta-string">&lt;#cellObject#&gt;</span> = [tableView dequeueReusableCellWithIdentifier:<span class="meta-string">&lt;#CellIdentifier#&gt;</span> forIndexPath:indexPath];</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &lt;<span class="meta">#cellObject#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - UITableViewDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line"> <span class="keyword">return</span> &lt;<span class="meta">#HeaderHight#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line"> <span class="keyword">return</span> &lt;<span class="meta">#RowHeight#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line"> <span class="keyword">return</span> &lt;<span class="meta">#HeaderView#&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">[tableView deselectRowAtIndexPath:indexPath animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// GCD回到主线程: gcd_main_queue</span></span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line"> &lt;<span class="meta">#code#&gt;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// GCD延时: gcd_after</span></span><br><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(&lt;<span class="meta">#delayInSeconds#&gt; * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span></span><br><span class="line">   &lt;<span class="meta">#code to be executed after a specified delay#&gt;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// GCD单例: gcd_onceToken</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)sharedInstance &#123;</span><br><span class="line"><span class="keyword">static</span> &lt;<span class="meta">#Class#&gt; *<span class="meta-string">&lt;#object#&gt;</span> = nil;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">&lt;<span class="meta">#object#&gt; = [[<span class="meta-string">&lt;#Class#&gt;</span> alloc] init];</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> &lt;<span class="meta">#object#&gt;;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 枚举: type_enum</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, Type) &#123;</span><br><span class="line">Type = <span class="number">0</span>, <span class="comment">// &lt;#description#&gt;</span></span><br><span class="line">Type = <span class="number">1</span>, <span class="comment">// &lt;#description#&gt;</span></span><br><span class="line">Type = <span class="number">2</span>, <span class="comment">// &lt;#description#&gt;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 有返回值的Block: block_return</span></span><br><span class="line"> <span class="keyword">typedef</span> <span class="keyword">void</span> (^&lt;<span class="meta">#BlockName#&gt;) (<span class="meta-string">&lt;#Class#&gt;</span> *<span class="meta-string">&lt;#object#&gt;</span>);</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 无返回的Block: block_void</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^&lt;<span class="meta">#BlockName#&gt;) (void);</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示: 快捷方式的命名可以自定义,  将Demo中的文件快捷方式名称改为符合自己编码习惯的名称. </p>
+</blockquote>
+<h2 id="使用举例"><a href="#使用举例" class="headerlink" title="使用举例:"></a>使用举例:</h2><blockquote>
+<p>以定义一个有返回值得Block为例子:<br>1.在Xcode中输入 <code>block</code><br>2.回车快捷方式便可得到:<code>typedef void (^&lt;#BlockName#&gt;) (&lt;#Class#&gt; *&lt;#object#&gt;);</code></p>
+</blockquote>
+<p>Github Demo: <a href="https://github.com/BaHui/BHShortcutCode" target="_blank" rel="noopener">https://github.com/BaHui/BHShortcutCode</a></p>
+<h2 id="交流与建议"><a href="#交流与建议" class="headerlink" title="交流与建议"></a>交流与建议</h2><ul>
+<li>GitHub：<a href="https://github.com/BaHui" target="_blank" rel="noopener">https://github.com/BaHui</a></li>
+<li>邮  箱：<a href="mailto:&#x71;&#105;&#97;&#111;&#x62;&#x61;&#104;&#x75;&#105;&#x79;&#111;&#117;&#x78;&#x69;&#97;&#110;&#x67;&#x40;&#49;&#x36;&#51;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x71;&#105;&#97;&#111;&#x62;&#x61;&#104;&#x75;&#105;&#x79;&#111;&#117;&#x78;&#x69;&#97;&#110;&#x67;&#x40;&#49;&#x36;&#51;&#46;&#x63;&#111;&#109;</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/30/RAC字典数组遍历/" rel="next" title="RAC字典数组遍历">
+                <i class="fa fa-chevron-left"></i> RAC字典数组遍历
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/13/Swift之基础部分/" rel="prev" title="Swift之基础部分">
+                Swift之基础部分 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4" alt="BaHui·Qiao">
+            
+              <p class="site-author-name" itemprop="name">BaHui·Qiao</p>
+              <p class="site-description motion-element" itemprop="description">Know what it is, know why it is!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加"><span class="nav-number">1.</span> <span class="nav-text">添加:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义内容"><span class="nav-number">2.</span> <span class="nav-text">自定义内容:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用举例"><span class="nav-number">3.</span> <span class="nav-text">使用举例:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交流与建议"><span class="nav-number">4.</span> <span class="nav-text">交流与建议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaHui·Qiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

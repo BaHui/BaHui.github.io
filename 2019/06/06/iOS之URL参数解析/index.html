@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="URL,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在iOS开发中, 会涉及到对链接中参数的获取、添加、删除以及修改.  针对链接中的参数进行操作, 可以使用以下的方法进行URL的操作. 其设计思想就是将URL中的参数转化为字典, 然后对字典的key和value进行操作, 最终将操作的字典结果反向拼接为字符串, 再通过URL的组合, 输出最终修改完成的URL字符串. 【Github Demo】">
+<meta name="keywords" content="URL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS之URL参数解析">
+<meta property="og:url" content="http://yoursite.com/2019/06/06/iOS之URL参数解析/index.html">
+<meta property="og:site_name" content="iOS Developer">
+<meta property="og:description" content="在iOS开发中, 会涉及到对链接中参数的获取、添加、删除以及修改.  针对链接中的参数进行操作, 可以使用以下的方法进行URL的操作. 其设计思想就是将URL中的参数转化为字典, 然后对字典的key和value进行操作, 最终将操作的字典结果反向拼接为字符串, 再通过URL的组合, 输出最终修改完成的URL字符串. 【Github Demo】">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-08T08:47:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS之URL参数解析">
+<meta name="twitter:description" content="在iOS开发中, 会涉及到对链接中参数的获取、添加、删除以及修改.  针对链接中的参数进行操作, 可以使用以下的方法进行URL的操作. 其设计思想就是将URL中的参数转化为字典, 然后对字典的key和value进行操作, 最终将操作的字典结果反向拼接为字符串, 再通过URL的组合, 输出最终修改完成的URL字符串. 【Github Demo】">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/06/iOS之URL参数解析/">
+
+
+
+
+
+  <title>iOS之URL参数解析 | iOS Developer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOS Developer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding is life!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/BaHui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/06/iOS之URL参数解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BaHui·Qiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOS Developer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS之URL参数解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T14:15:00+08:00">
+                2019-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　<strong>在iOS开发中, 会涉及到对链接中参数的获取、添加、删除以及修改.  针对链接中的参数进行操作, 可以使用以下的方法进行URL的操作. 其设计思想就是将URL中的参数转化为<code>字典</code>, 然后对字典的key和value进行操作, 最终将操作的字典结果反向拼接为字符串, 再通过URL的组合, 输出最终修改完成的URL字符串.<br> <a href="https://github.com/BaHui/BHURLHelper" target="_blank" rel="noopener">【Github Demo】</a></strong></p>
+<a id="more"></a>
+
+<h2 id="【接口】"><a href="#【接口】" class="headerlink" title="【接口】"></a>【接口】</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** 增:</span></span><br><span class="line"><span class="comment">为链接增加参数和值;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@param parameters 要增加的参数和值 eg: @&#123;@"version" : @"1.1.0"&#125;</span></span><br><span class="line"><span class="comment">@return 增加参数后生成一个新的URL String;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)addParameters:(<span class="built_in">NSDictionary</span> *)parameters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 删:</span></span><br><span class="line"><span class="comment">删除参数为key的键值对;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@param key 要删除的参数对的键;</span></span><br><span class="line"><span class="comment">@return 删除的参数后生成一个新的URL String;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)deleteParameterOfKey:(<span class="built_in">NSString</span> *)key;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 改:</span></span><br><span class="line"><span class="comment">修改参数中的值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@param key 要修改的值对应的键</span></span><br><span class="line"><span class="comment">@param toValue 要求改成的值</span></span><br><span class="line"><span class="comment">@return 修改值后生成一个新的URL String;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)modifyParameterOfKey:(<span class="built_in">NSString</span> *)key toValue:(<span class="built_in">NSString</span> *)toValue;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 查:</span></span><br><span class="line"><span class="comment">获取URL中的所有参数键值对</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@返回值为字典, 字典中key为参数, value为参数值;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">- (<span class="built_in">NSDictionary</span> *)parseURLParameters;</span><br></pre></td></tr></table></figure>
+
+<h2 id="【实现】"><a href="#【实现】" class="headerlink" title="【实现】"></a>【实现】</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">BHURLHelper</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)addParameters:(<span class="built_in">NSDictionary</span> *)parameters &#123;</span><br><span class="line">   <span class="built_in">NSMutableArray</span> *parts = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">NSString</span> *key <span class="keyword">in</span> [parameters allKeys]) &#123;</span><br><span class="line">       <span class="built_in">NSString</span> *part = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@=%@"</span>, key, [parameters valueForKey:key]];</span><br><span class="line">       [parts addObject: part];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSString</span> *parametersString= [parts componentsJoinedByString:<span class="string">@"&amp;"</span>];</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSString</span> *addSuffixString = <span class="string">@""</span>;</span><br><span class="line">   <span class="keyword">if</span> ([[<span class="keyword">self</span> parseURLParameters] count] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       <span class="comment">// 原链接已经存在参数, 则用"&amp;"直接拼接参数;</span></span><br><span class="line">       addSuffixString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>, <span class="string">@"&amp;"</span>, parametersString];</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="comment">// 原链接不存在参数, 则先添加"?", 再拼接参数;</span></span><br><span class="line">       addSuffixString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>, <span class="string">@"?"</span>, parametersString]; </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> [<span class="keyword">self</span> stringByAppendingString:addSuffixString];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)deleteParameterOfKey:(<span class="built_in">NSString</span> *)key; &#123;</span><br><span class="line">   <span class="built_in">NSString</span> *finalString = [<span class="built_in">NSString</span> string];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> ([<span class="keyword">self</span> containsString:key]) &#123;</span><br><span class="line">       <span class="built_in">NSMutableString</span> *mutStr = [<span class="built_in">NSMutableString</span> stringWithString:<span class="keyword">self</span>];</span><br><span class="line">       <span class="built_in">NSArray</span> *strArray = [mutStr componentsSeparatedByString:key];</span><br><span class="line"></span><br><span class="line">       <span class="built_in">NSMutableString</span> *firstStr = [strArray objectAtIndex:<span class="number">0</span>];</span><br><span class="line">       <span class="built_in">NSMutableString</span> *lastStr = [strArray lastObject];</span><br><span class="line"></span><br><span class="line">       <span class="built_in">NSRange</span> characterRange = [lastStr rangeOfString:<span class="string">@"&amp;"</span>];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (characterRange.location != <span class="built_in">NSNotFound</span>) &#123;</span><br><span class="line">           <span class="built_in">NSArray</span> *lastArray = [lastStr componentsSeparatedByString:<span class="string">@"&amp;"</span>];</span><br><span class="line">           <span class="built_in">NSMutableArray</span> *mutArray = [<span class="built_in">NSMutableArray</span> arrayWithArray:lastArray];</span><br><span class="line">           [mutArray removeObjectAtIndex:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">           <span class="built_in">NSString</span> *modifiedStr = [mutArray componentsJoinedByString:<span class="string">@"&amp;"</span>];</span><br><span class="line">           finalString = [[strArray objectAtIndex:<span class="number">0</span>]stringByAppendingString:modifiedStr];</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           finalString = [firstStr substringToIndex:[firstStr length] - <span class="number">1</span>];</span><br><span class="line">       &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       finalString = <span class="keyword">self</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> finalString;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)modifyParameterOfKey:(<span class="built_in">NSString</span> *)key toValue:(<span class="built_in">NSString</span> *)toValue &#123;</span><br><span class="line">   <span class="built_in">NSDictionary</span> *parameters = [<span class="keyword">self</span> parseURLParameters];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (parameters.count &gt; <span class="number">0</span> &amp;&amp; [parameters.allKeys containsObject:key]) &#123;</span><br><span class="line">       [parameters setValue:toValue forKey:key];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSString</span> *urlString = <span class="keyword">self</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">NSString</span> *key <span class="keyword">in</span> parameters.allKeys) &#123;</span><br><span class="line">       urlString = [urlString deleteParameterOfKey:key];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> [urlString addParameters:parameters];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMutableDictionary</span> *)parseURLParameters &#123;</span><br><span class="line">   <span class="built_in">NSRange</span> range = [<span class="keyword">self</span> rangeOfString:<span class="string">@"?"</span>];</span><br><span class="line">   <span class="keyword">if</span> (range.location == <span class="built_in">NSNotFound</span>) <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSMutableDictionary</span> *parameters = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"></span><br><span class="line">   <span class="built_in">NSString</span> *parametersString = [<span class="keyword">self</span> substringFromIndex:range.location + <span class="number">1</span>];</span><br><span class="line">   <span class="keyword">if</span> ([parametersString containsString:<span class="string">@"&amp;"</span>]) &#123;</span><br><span class="line">       <span class="built_in">NSArray</span> *urlComponents = [parametersString componentsSeparatedByString:<span class="string">@"&amp;"</span>];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">NSString</span> *keyValuePair <span class="keyword">in</span> urlComponents) &#123;</span><br><span class="line">           <span class="built_in">NSArray</span> *pairComponents = [keyValuePair componentsSeparatedByString:<span class="string">@"="</span>];</span><br><span class="line">           <span class="built_in">NSString</span> *key = [pairComponents.firstObject stringByRemovingPercentEncoding];</span><br><span class="line">           <span class="built_in">NSString</span> *value = [pairComponents.lastObject stringByRemovingPercentEncoding];</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (key == <span class="literal">nil</span> || value == <span class="literal">nil</span>) &#123;</span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">id</span> existValue = [parameters valueForKey:key];</span><br><span class="line">           <span class="keyword">if</span> (existValue != <span class="literal">nil</span>) &#123;</span><br><span class="line">               <span class="keyword">if</span> ([existValue isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">                   <span class="built_in">NSMutableArray</span> *items = [<span class="built_in">NSMutableArray</span> arrayWithArray:existValue];</span><br><span class="line">                   [items addObject:value];</span><br><span class="line">                   [parameters setValue:items forKey:key];</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   [parameters setValue:@[existValue, value] forKey:key];</span><br><span class="line">               &#125;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               [parameters setValue:value forKey:key];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="built_in">NSArray</span> *pairComponents = [parametersString componentsSeparatedByString:<span class="string">@"="</span>];</span><br><span class="line">       <span class="keyword">if</span> (pairComponents.count == <span class="number">1</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">NSString</span> *key = [pairComponents.firstObject stringByRemovingPercentEncoding];</span><br><span class="line">       <span class="built_in">NSString</span> *value = [pairComponents.lastObject stringByRemovingPercentEncoding];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (key == <span class="literal">nil</span> || value == <span class="literal">nil</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       [parameters setValue:value forKey:key];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> parameters;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="【使用示例】"><a href="#【使用示例】" class="headerlink" title="【使用示例】"></a>【使用示例】</h2><pre><code class="objectivec">
+原始链接: <span class="keyword">self</span>.originalUrlString = <span class="string">@"https://github.com?name=qiaobahui&amp;age=23"</span>;
+
+- (<span class="keyword">void</span>)addParameterTest {
+   <span class="comment">// 添加参数</span>
+   <span class="built_in">NSString</span> *addResult = [<span class="keyword">self</span>.originalUrlString addParameters:@{<span class="string">@"sex"</span> : <span class="string">@"man"</span>}];
+   <span class="built_in">NSLog</span>(<span class="string">@"addResult: %@"</span>, addResult); 
+   <span class="comment">// 输出结果: https://github.com?name=qiaobahui&amp;age=23&amp;sex=man</span>
+}   
+
+- (<span class="keyword">void</span>)deleteParameterTest {
+   <span class="comment">// 删除"age"对应的参数对;</span>
+   <span class="built_in">NSString</span> *deleteResult = [<span class="keyword">self</span>.originalUrlString deleteParameterOfKey:<span class="string">@"age"</span>];
+   <span class="built_in">NSLog</span>(<span class="string">@"deleteResult: %@"</span>, deleteResult); 
+   <span class="comment">// 输出结果: https://github.com?name=qiaobahui</span>
+}
+
+- (<span class="keyword">void</span>)modifyParameterTest {
+   <span class="comment">// 修改"age"的值 = 100, 原值为23;</span>
+   <span class="built_in">NSString</span> *modifyResult = [<span class="keyword">self</span>.originalUrlString modifyParameterOfKey:<span class="string">@"age"</span> toValue:<span class="string">@"100"</span>];
+   <span class="built_in">NSLog</span>(<span class="string">@"modifyResult: %@"</span>, modifyResult); 
+   <span class="comment">// 输出结果: https://github.com?name=qiaobahui&amp;age=100</span>
+}
+
+- (<span class="keyword">void</span>)parseAllParametersTest {
+   <span class="comment">// 获取链接中的参数和值</span>
+   <span class="built_in">NSDictionary</span> *parametersResult = [<span class="keyword">self</span>.originalUrlString parseURLParameters];
+   <span class="built_in">NSLog</span>(<span class="string">@"parameterResult: %@"</span>, parametersResult); 
+   <span class="comment">// 输出结果: parameterResult: {age = 23; name = qiaobahui;}</span>
+}</code></pre>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/URL/" rel="tag"># URL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/05/iOS技术点/" rel="next" title="iOS技术点">
+                <i class="fa fa-chevron-left"></i> iOS技术点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/08/SSH Key的生成/" rel="prev" title="SSH Key的生成">
+                SSH Key的生成 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://m.qpic.cn/psb?/V10CjHK72pAXVH/PjX68IehEAP1sj3L80x7TYlBvXlVeD9EgpB391SbNWQ!/b/dN4AAAAAAAAA&bo=ZwJ2AgAAAAARByE!&rf=viewer_4" alt="BaHui·Qiao">
+            
+              <p class="site-author-name" itemprop="name">BaHui·Qiao</p>
+              <p class="site-description motion-element" itemprop="description">Know what it is, know why it is!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#【接口】"><span class="nav-number">1.</span> <span class="nav-text">【接口】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【实现】"><span class="nav-number">2.</span> <span class="nav-text">【实现】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【使用示例】"><span class="nav-number">3.</span> <span class="nav-text">【使用示例】</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BaHui·Qiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
