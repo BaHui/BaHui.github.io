@@ -22,7 +22,7 @@
 
   
 
-  <title>getElement(s) | </title>
+  <title>【前端】Box-sizing用法 | </title>
 
   
 
@@ -95,7 +95,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">getElement(s)</h1>
+          <h1 class="title-wrap">【前端】Box-sizing用法</h1>
           <h2 class="title-sub-wrap">
             <strong>Xiaoba</strong>
             <span>发布于</span>
@@ -104,12 +104,14 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-12-26T16:03:52.110Z" itemprop="dateUpdated">2024-12-27</time>
+              <time  class="article-updated" datetime="2025-01-25T08:03:47.464Z" itemprop="dateUpdated">2025-01-25</time>
             </h2>
           
           
           <ul class="wrap-list dark">
   
+    <li><a href="/categories/Base-UI/">📒 Base.UI</a></li>
+    
 </ul>
           <ul class="wrap-list dark">
   
@@ -137,34 +139,34 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="getElement-s-Byxxxx与querySelector-All-的区别和使用场景-11111"><a href="#getElement-s-Byxxxx与querySelector-All-的区别和使用场景-11111" class="headerlink" title="getElement(s)Byxxxx与querySelector(All)的区别和使用场景..11111"></a><code>getElement(s)Byxxxx</code>与<code>querySelector(All)</code>的区别和使用场景..11111</h1><p>在Web开发中，DOM操作是必不可少的一部分。JavaScript提供了多种方法来选择页面上的元素，其中<code>getElement(s)Byxxxx</code>和<code>querySelector(All)</code>是最常用的两种方式。本文将详细探讨这两种方法的区别以及它们的使用场景。</p>
-<h2 id="getElement-s-Byxxxx-方法"><a href="#getElement-s-Byxxxx-方法" class="headerlink" title="getElement(s)Byxxxx 方法"></a><code>getElement(s)Byxxxx</code> 方法</h2><p><code>getElement(s)Byxxxx</code> 是一组DOM API，包括<code>getElementById</code>、<code>getElementsByTagName</code>、<code>getElementsByClassName</code>等。这些方法返回的是一个<code>NodeList</code>对象，它类似于数组，但不是数组。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><strong>返回值</strong>：返回一个<code>NodeList</code>对象，包含所有匹配的元素。</li>
-<li><strong>大小写敏感</strong>：不区分大小写。</li>
-<li><strong>性能</strong>：通常比<code>querySelector(All)</code>慢，尤其是在大型文档中。</li>
-<li><strong>兼容性</strong>：兼容性较好，支持所有浏览器。</li>
+        <h1 id="CSS-中的-box-sizing-属性详解"><a href="#CSS-中的-box-sizing-属性详解" class="headerlink" title="CSS 中的 box-sizing 属性详解"></a>CSS 中的 <code>box-sizing</code> 属性详解</h1><p>在前端开发中，<code>box-sizing</code> 是一个非常重要的 CSS 属性，它决定了元素的盒模型（box model）的计算方式。正确使用 <code>box-sizing</code> 可以帮助我们更灵活地布局页面，避免一些常见的布局问题。</p>
+<h2 id="一、盒模型基础"><a href="#一、盒模型基础" class="headerlink" title="一、盒模型基础"></a>一、盒模型基础</h2><p>在 CSS 中，每个元素都被视为一个盒子，由以下几个部分组成：</p>
+<ol>
+<li><strong>内容区域（content）</strong>：盒子内部真正显示内容的部分。</li>
+<li><strong>内边距（padding）</strong>：内容区域与边框之间的空间。</li>
+<li><strong>边框（border）</strong>：围绕内容和内边距的线条。</li>
+<li><strong>外边距（margin）</strong>：盒子与其他元素之间的空间。</li>
+</ol>
+<p>默认情况下，CSS 盒模型遵循的是标准盒模型（<code>content-box</code>），即元素的宽度和高度仅包括内容区域的大小，不包括内边距、边框和外边距。</p>
+<h2 id="二、box-sizing-的值"><a href="#二、box-sizing-的值" class="headerlink" title="二、box-sizing 的值"></a>二、<code>box-sizing</code> 的值</h2><p><code>box-sizing</code> 属性可以取以下两个值：</p>
+<h3 id="（一）content-box（默认值）"><a href="#（一）content-box（默认值）" class="headerlink" title="（一）content-box（默认值）"></a>（一）<code>content-box</code>（默认值）</h3><ul>
+<li><strong>含义</strong>：元素的宽度和高度仅包括内容区域的大小，不包括内边距、边框和外边距。</li>
+<li><strong>示例</strong>：  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  在这个例子中，元素的实际宽度为：<code>200px（内容宽度）+ 2 × 20px（内边距）+ 2 × 10px（边框）= 260px</code>。高度同理。</li>
 </ul>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li>当你需要获取多个相同类型的元素时，例如获取所有<code>&lt;p&gt;</code>标签。</li>
-<li>当你不需要CSS选择器的复杂选择能力时。</li>
+<h3 id="（二）border-box"><a href="#（二）border-box" class="headerlink" title="（二）border-box"></a>（二）<code>border-box</code></h3><ul>
+<li><strong>含义</strong>：元素的宽度和高度包括内容区域、内边距和边框的大小，但不包括外边距。</li>
+<li><strong>示例</strong>：  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  在这个例子中，元素的实际宽度始终为 <code>200px</code>，其中 <code>200px</code> 包括了内容区域、内边距和边框的宽度。内容区域的实际宽度为：<code>200px - 2 × 20px（内边距）- 2 × 10px（边框）= 140px</code>。高度同理。</li>
 </ul>
-<h2 id="querySelector-All-方法"><a href="#querySelector-All-方法" class="headerlink" title="querySelector(All) 方法"></a><code>querySelector(All)</code> 方法</h2><p><code>querySelector(All)</code> 方法允许你使用CSS选择器来查询DOM中的元素。<code>querySelector</code>返回文档中匹配指定CSS选择器的第一个元素，而<code>querySelectorAll</code>返回所有匹配的元素集合。</p>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><strong>返回值</strong>：<code>querySelector</code>返回单个元素（<code>Element</code>），<code>querySelectorAll</code>返回一个<code>NodeList</code>。</li>
-<li><strong>大小写敏感</strong>：区分大小写，遵循CSS选择器的规则。</li>
-<li><strong>性能</strong>：通常比<code>getElement(s)Byxxxx</code>快，尤其是在大型文档中。</li>
-<li><strong>兼容性</strong>：现代浏览器都支持，但旧版IE不支持。</li>
-</ul>
-<h3 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li>当你需要使用复杂的CSS选择器来选择元素时，例如选择特定类的子元素。</li>
-<li>当你需要更高效的性能时。</li>
-</ul>
-<h2 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h2><p>在性能方面，<code>querySelector(All)</code>通常优于<code>getElement(s)Byxxxx</code>，尤其是在处理大型文档时。这是因为<code>querySelector(All)</code>是基于浏览器的CSS选择器引擎实现的，而<code>getElement(s)Byxxxx</code>则需要遍历DOM树来查找匹配的元素。</p>
-<h2 id="兼容性对比"><a href="#兼容性对比" class="headerlink" title="兼容性对比"></a>兼容性对比</h2><p>在兼容性方面，<code>getElement(s)Byxxxx</code>由于其历史悠久，几乎所有浏览器都支持。而<code>querySelector(All)</code>虽然在现代浏览器中得到了广泛支持，但在旧版IE中并不可用。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>选择<code>getElement(s)Byxxxx</code>还是<code>querySelector(All)</code>取决于你的具体需求。如果你需要处理的DOM结构简单，且需要在旧版IE中运行，那么<code>getElement(s)Byxxxx</code>可能是更好的选择。如果你需要使用复杂的CSS选择器，并且关注性能，那么<code>querySelector(All)</code>将是一个更好的选择。</p>
-<hr>
-<p>希望这篇文档能够帮助你撰写博客。如果有任何问题或需要进一步的信息，请随时告知。</p>
+<h2 id="三、box-sizing-的应用场景"><a href="#三、box-sizing-的应用场景" class="headerlink" title="三、box-sizing 的应用场景"></a>三、<code>box-sizing</code> 的应用场景</h2><h3 id="（一）固定布局"><a href="#（一）固定布局" class="headerlink" title="（一）固定布局"></a>（一）固定布局</h3><p>当需要精确控制元素的宽度和高度时，使用 <code>border-box</code> 模式可以更方便地设置内边距和边框，而不会影响元素的外部尺寸。<br>例如，制作一个固定宽度的导航栏，希望内边距和边框不会使导航栏超出预期宽度。</p>
+<h3 id="（二）流式布局"><a href="#（二）流式布局" class="headerlink" title="（二）流式布局"></a>（二）流式布局</h3><p>在流式布局中，元素的宽度通常是百分比形式。使用 <code>border-box</code> 模式可以确保即使添加了内边距和边框，元素的总宽度仍然符合百分比计算，从而保持布局的灵活性。</p>
+<h3 id="（三）表单布局"><a href="#（三）表单布局" class="headerlink" title="（三）表单布局"></a>（三）表单布局</h3><p>对于表单元素（如输入框、按钮等），使用 <code>border-box</code> 模式可以让开发者更直观地控制元素的尺寸，避免因内边距和边框导致的布局错乱。</p>
+<h2 id="四、全局设置-box-sizing"><a href="#四、全局设置-box-sizing" class="headerlink" title="四、全局设置 box-sizing"></a>四、全局设置 <code>box-sizing</code></h2><p>为了避免在每个元素上单独设置 <code>box-sizing</code>，可以通过以下方式全局设置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*, *<span class="selector-pseudo">::before</span>, *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、注意事项"><a href="#五、注意事项" class="headerlink" title="五、注意事项"></a>五、注意事项</h2><p>兼容性：box-sizing 在现代浏览器中得到了广泛支持，但在一些老旧浏览器中可能存在问题。如果需要兼容旧浏览器，建议进行测试。<br>与外边距的关系：无论使用哪种 box-sizing 模式，外边距都不会影响元素的宽度和高度计算。</p>
+<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><p>box-sizing 是一个非常实用的 CSS 属性，通过合理选择 content-box 或 border-box，可以更灵活地控制元素的布局。在实际开发中，建议优先使用 border-box 模式，因为它能更好地适应各种布局需求，同时减少因内边距和边框导致的布局问题。</p>
 
       </section>
 
@@ -206,7 +208,7 @@
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
 </svg>
-        0
+        1
       </div>
       <div class="count-box--item">
         <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -244,6 +246,12 @@
   <div class="widget-body">
     <ul class="categories-list">
       
+        <li class="categories-list-item">
+          <a href="/categories/Base-UI/">
+            Base.UI (1)
+          </a>
+        </li>
+        
     </ul>
   </div>
 </section>
