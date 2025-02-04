@@ -22,7 +22,7 @@
 
   
 
-  <title>【前端】获取指定DOM元素并操作 | </title>
+  <title>【前端】调用组件实例方法 | </title>
 
   
 
@@ -95,11 +95,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">【前端】获取指定DOM元素并操作</h1>
+          <h1 class="title-wrap">【前端】调用组件实例方法</h1>
           <h2 class="title-sub-wrap">
             <strong>Xiaoba</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2025-02-04T08:34:45.994Z" itemprop="datePublished">2025-02-04</time>
+            <time  class="article-date" datetime="2025-02-04T09:08:02.695Z" itemprop="datePublished">2025-02-04</time>
           </h2>
           
           
@@ -134,14 +134,15 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="获取指定元素的方法"><a href="#获取指定元素的方法" class="headerlink" title="获取指定元素的方法"></a>获取指定元素的方法</h1><h2 id="示例样式"><a href="#示例样式" class="headerlink" title="示例样式"></a>示例样式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container1&quot;</span> <span class="attr">id</span>=<span class="string">&quot;container1&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;container1&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;logValues&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container2&quot;</span> <span class="attr">id</span>=<span class="string">&quot;container2&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;container2&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="示例样式"><a href="#示例样式" class="headerlink" title="示例样式"></a>示例样式</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container1&quot;</span> <span class="attr">id</span>=<span class="string">&quot;container1&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;container1&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--组件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OneComp</span> <span class="attr">ref</span>=<span class="string">&quot;oneComp&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">OneComp</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="1-方式一-getElementsByClassName"><a href="#1-方式一-getElementsByClassName" class="headerlink" title="1. 方式一: getElementsByClassName"></a>1. 方式一: getElementsByClassName</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取一个HTMLCollection动态集合，表示HTML元素的集合</span></span><br><span class="line"><span class="keyword">const</span> elementCollection = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;container1&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过下标获取到指定的单元素</span></span><br><span class="line"><span class="keyword">const</span> targetElement = elementCollection[<span class="number">0</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;targetElement&#x27;</span>, targetElement);</span><br><span class="line"><span class="comment">// log: &lt;div data-v-3f7f003e=&quot;&quot; id=&quot;container1&quot; class=&quot;container1&quot;&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改样式为蓝色</span></span><br><span class="line">targetElement.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;blue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改宽高为300px</span></span><br><span class="line">targetElement.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&#x27;300px&#x27;</span>;</span><br><span class="line">targetElement.<span class="property">style</span>.<span class="property">height</span> = <span class="string">&#x27;300px&#x27;</span>; </span><br></pre></td></tr></table></figure>
-<p>注: 如果出现多个重复的className，则返回第一个匹配到的元素;</p>
-<h3 id="2-方式二-getElementsById"><a href="#2-方式二-getElementsById" class="headerlink" title="2. 方式二: getElementsById"></a>2. 方式二: getElementsById</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过设置id=&quot;xxx&quot;来获取指定元素</span></span><br><span class="line"><span class="keyword">const</span> targetElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;container1&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;targetElement&#x27;</span>, targetElement);</span><br><span class="line"><span class="comment">// log: &lt;div data-v-3f7f003e=&quot;&quot; id=&quot;container1&quot; class=&quot;container1&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-<p>注: 如果出现多个重复id，则返回第一个匹配到的元素;</p>
-<h3 id="3-方式三-refs"><a href="#3-方式三-refs" class="headerlink" title="3. 方式三: refs"></a>3. 方式三: refs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> refs = <span class="variable language_">this</span>.<span class="property">$refs</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;refs&#x27;</span>, refs);</span><br><span class="line"><span class="comment">// log: &#123;container1: xxx, container2: yyy&#125;, 形式为Object;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> targetElement = refs.<span class="property">container1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;targetElement&#x27;</span>, targetElement);</span><br><span class="line"><span class="comment">// log: &lt;div data-v-3f7f003e=&quot;&quot; id=&quot;container1&quot; class=&quot;container1&quot;&gt; </span></span><br></pre></td></tr></table></figure>
-<p>注: 字典中当有重复的ref值时, 新值不能覆盖旧值; 使用第一次匹配到的值;</p>
+<h1 id="调用组件方法"><a href="#调用组件方法" class="headerlink" title="调用组件方法"></a>调用组件方法</h1><ul>
+<li><p>index.vue(父容器)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="comment">// 获取子组件</span></span><br><span class="line">   <span class="keyword">const</span> oneComp = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">oneComp</span>;</span><br><span class="line">   <span class="comment">// 调用子组件方法</span></span><br><span class="line">   oneComp.<span class="title function_">callMe</span>();</span><br><span class="line">   <span class="comment">// log: 我是子组件的方法, 我被调用了</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>OneComp.vue(子组件)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">   <span class="title function_">callMe</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是子组件的方法, 我被调用了&#x27;</span>);</span><br><span class="line">   &#125;,</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       </section>
 
@@ -149,28 +150,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2025/02/04/%E8%B0%83%E7%94%A8%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【前端】调用组件实例方法</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2024/11/17/Box-sizing%E7%94%A8%E6%B3%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【前端】Box-sizing用法</h2>
+        <a href="/2025/02/04/%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9ADOM%E5%85%83%E7%B4%A0%E5%B9%B6%E6%93%8D%E4%BD%9C/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【前端】获取指定DOM元素并操作</h2>
         </a>
       
       <div class="card-text--row">Older</div>
