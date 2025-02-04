@@ -22,7 +22,7 @@
 
   
 
-  <title>【前端】Box-sizing用法 | </title>
+  <title>【前端】Style的设置 | </title>
 
   
 
@@ -95,17 +95,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">【前端】Box-sizing用法</h1>
+          <h1 class="title-wrap">【前端】Style的设置</h1>
           <h2 class="title-sub-wrap">
             <strong>Xiaoba</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-11-17T14:49:18.118Z" itemprop="datePublished">2024-11-17</time>
+            <time  class="article-date" datetime="2025-02-04T13:08:07.298Z" itemprop="datePublished">2025-02-04</time>
           </h2>
-          
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2025-02-03T23:26:06.926Z" itemprop="dateUpdated">2025-02-04</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -115,7 +110,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/Dom/">🏷️ Dom</a></li>
+    <li><a href="/tags/DOM/">🏷️ DOM</a></li>
   
 </ul>
         </div>
@@ -139,34 +134,16 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="CSS-中的-box-sizing-属性详解"><a href="#CSS-中的-box-sizing-属性详解" class="headerlink" title="CSS 中的 box-sizing 属性详解"></a>CSS 中的 <code>box-sizing</code> 属性详解</h1><p>在前端开发中，<code>box-sizing</code> 是一个非常重要的 CSS 属性，它决定了元素的盒模型（box model）的计算方式。正确使用 <code>box-sizing</code> 可以帮助我们更灵活地布局页面，避免一些常见的布局问题。</p>
-<h2 id="一、盒模型基础"><a href="#一、盒模型基础" class="headerlink" title="一、盒模型基础"></a>一、盒模型基础</h2><p>在 CSS 中，每个元素都被视为一个盒子，由以下几个部分组成：</p>
+        <h2 id="示例Html"><a href="#示例Html" class="headerlink" title="示例Html"></a>示例Html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--动态bind形式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container1&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#123; backgroundColor: bgcolor, width: &#x27;100px&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--静态值形式--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: green; width: 100px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>说明:<br>使用 <code>v-bind</code> 指令（或其缩写 <code>:</code>）来绑定动态属性。在你的例子中，<code>:style</code> 用于将 <code>bgcolor</code> 变量的值动态绑定到 <code>style</code> 属性中。这种语法主要用于需要根据组件的数据或状态动态计算属性值的情况。</p>
+<p>分隔符使用:<br><code>:</code>形式下:  若需要设置多个样式值, 使用<code>,</code>间隔;<br><code>静态值</code>形式下: 若需要设置多个样式值, 使用 <code>;</code> 间隔;</p>
+<p>具体来说：</p>
 <ol>
-<li><strong>内容区域（content）</strong>：盒子内部真正显示内容的部分。</li>
-<li><strong>内边距（padding）</strong>：内容区域与边框之间的空间。</li>
-<li><strong>边框（border）</strong>：围绕内容和内边距的线条。</li>
-<li><strong>外边距（margin）</strong>：盒子与其他元素之间的空间。</li>
+<li><p>当你需要将一个变量或表达式的值绑定到属性时，使用 <code>:</code>。<br>例如：<code>:style=&quot;&#123; backgroundColor: bgcolor &#125;&quot;</code>。</p>
+</li>
+<li><p>当你直接使用静态值时，不需要 <code>:</code>。例如：<code>style=&quot;background-color: red;&quot;</code>。</p>
+</li>
 </ol>
-<p>默认情况下，CSS 盒模型遵循的是标准盒模型（<code>content-box</code>），即元素的宽度和高度仅包括内容区域的大小，不包括内边距、边框和外边距。</p>
-<h2 id="二、box-sizing-的值"><a href="#二、box-sizing-的值" class="headerlink" title="二、box-sizing 的值"></a>二、<code>box-sizing</code> 的值</h2><p><code>box-sizing</code> 属性可以取以下两个值：</p>
-<h3 id="（一）content-box（默认值）"><a href="#（一）content-box（默认值）" class="headerlink" title="（一）content-box（默认值）"></a>（一）<code>content-box</code>（默认值）</h3><ul>
-<li><strong>含义</strong>：元素的宽度和高度仅包括内容区域的大小，不包括内边距、边框和外边距。</li>
-<li><strong>示例</strong>：  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  在这个例子中，元素的实际宽度为：<code>200px（内容宽度）+ 2 × 20px（内边距）+ 2 × 10px（边框）= 260px</code>。高度同理。</li>
-</ul>
-<h3 id="（二）border-box"><a href="#（二）border-box" class="headerlink" title="（二）border-box"></a>（二）<code>border-box</code></h3><ul>
-<li><strong>含义</strong>：元素的宽度和高度包括内容区域、内边距和边框的大小，但不包括外边距。</li>
-<li><strong>示例</strong>：  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  在这个例子中，元素的实际宽度始终为 <code>200px</code>，其中 <code>200px</code> 包括了内容区域、内边距和边框的宽度。内容区域的实际宽度为：<code>200px - 2 × 20px（内边距）- 2 × 10px（边框）= 140px</code>。高度同理。</li>
-</ul>
-<h2 id="三、box-sizing-的应用场景"><a href="#三、box-sizing-的应用场景" class="headerlink" title="三、box-sizing 的应用场景"></a>三、<code>box-sizing</code> 的应用场景</h2><h3 id="（一）固定布局"><a href="#（一）固定布局" class="headerlink" title="（一）固定布局"></a>（一）固定布局</h3><p>当需要精确控制元素的宽度和高度时，使用 <code>border-box</code> 模式可以更方便地设置内边距和边框，而不会影响元素的外部尺寸。<br>例如，制作一个固定宽度的导航栏，希望内边距和边框不会使导航栏超出预期宽度。</p>
-<h3 id="（二）流式布局"><a href="#（二）流式布局" class="headerlink" title="（二）流式布局"></a>（二）流式布局</h3><p>在流式布局中，元素的宽度通常是百分比形式。使用 <code>border-box</code> 模式可以确保即使添加了内边距和边框，元素的总宽度仍然符合百分比计算，从而保持布局的灵活性。</p>
-<h3 id="（三）表单布局"><a href="#（三）表单布局" class="headerlink" title="（三）表单布局"></a>（三）表单布局</h3><p>对于表单元素（如输入框、按钮等），使用 <code>border-box</code> 模式可以让开发者更直观地控制元素的尺寸，避免因内边距和边框导致的布局错乱。</p>
-<h2 id="四、全局设置-box-sizing"><a href="#四、全局设置-box-sizing" class="headerlink" title="四、全局设置 box-sizing"></a>四、全局设置 <code>box-sizing</code></h2><p>为了避免在每个元素上单独设置 <code>box-sizing</code>，可以通过以下方式全局设置：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*, *<span class="selector-pseudo">::before</span>, *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="五、注意事项"><a href="#五、注意事项" class="headerlink" title="五、注意事项"></a>五、注意事项</h2><p>兼容性：box-sizing 在现代浏览器中得到了广泛支持，但在一些老旧浏览器中可能存在问题。如果需要兼容旧浏览器，建议进行测试。<br>与外边距的关系：无论使用哪种 box-sizing 模式，外边距都不会影响元素的宽度和高度计算。</p>
-<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><p>box-sizing 是一个非常实用的 CSS 属性，通过合理选择 content-box 或 border-box，可以更灵活地控制元素的布局。在实际开发中，建议优先使用 border-box 模式，因为它能更好地适应各种布局需求，同时减少因内边距和边框导致的布局问题。</p>
 
       </section>
 
@@ -174,20 +151,20 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2025/02/04/%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9ADOM%E5%85%83%E7%B4%A0%E5%B9%B6%E6%93%8D%E4%BD%9C/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">【前端】获取指定DOM元素并操作</h2>
+        <a href="/2025/02/04/%E8%B0%83%E7%94%A8%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">【前端】调用组件实例方法</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
